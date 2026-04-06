@@ -302,14 +302,14 @@
             >;
         };
 
-        SCROLL {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                                 &trans  &trans               &trans  &trans  &m_ipa_click
-&trans  &trans  &trans  &trans  &trans  &trans                 &trans  &trans  &mkp_exit_AML LCLK   &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &lt_implo 5 0                  &trans  &trans  &trans               &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                 &trans  &trans                                       &trans
-            >;
-        };
+       SCROLL {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                                 &trans  &trans               &trans  &trans  &m_ipa_click
+&trans  &trans  &trans  &trans  &trans  &trans                 &trans  &trans  &mkp_exit_AML MB1   &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &lt_implo 5 0  &trans          &trans  &trans  &trans               &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                 &trans  &trans                                       &trans
+            >;
+        };
 
         layer_6 {
             bindings = <
