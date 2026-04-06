@@ -20,24 +20,53 @@
 / {
     combos {
         compatible = "zmk,combos";
+
         // ... (既存のBT設定などはそのまま維持)
-        BT0 { bindings = <&bt BT_SEL 0>; key-positions = <28>; };
-        BT1 { bindings = <&bt BT_SEL 1>; key-positions = <28 23>; };
-        BT2 { bindings = <&bt BT_SEL 2>; key-positions = <28 24>; };
+
+        BT0 {
+            bindings = <&bt BT_SEL 0>;
+            key-positions = <28>;
+        };
+
+        BT1 {
+            bindings = <&bt BT_SEL 1>;
+            key-positions = <28 23>;
+        };
+
+        BT2 {
+            bindings = <&bt BT_SEL 2>;
+            key-positions = <28 24>;
+        };
     };
 
     macros {
         // Unicode切替用ベースマクロ (Mac用: Ctrl+Space -> Alt+Hex -> Ctrl+Space)
-        #define IPA_MACRO(name, code) \
-        name: name { \
-            compatible = "zmk,behavior-macro"; \
-            #binding-cells = <0>; \
-            wait-ms = <1>; tap-ms = <1>; \
-            bindings = <&macro_press &kp LCTRL &macro_tap &kp SPACE &macro_release &kp LCTRL> \
-                     , <&macro_press &kp LALT> \
-                     , <&macro_tap code> \
-                     , <&macro_release &kp LALT> \
-                     , <&macro_press &kp LCTRL &macro_tap &kp SPACE &macro_release &kp LCTRL>; \
+
+        #define IPA_MACRO(name, code)
+
+        name: name {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <1>;
+            tap-ms = <1>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap code>,
+                <&macro_release>,
+                <&kp LALT>,
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LCTRL>;
         };
 
         IPA_MACRO(m_m_vless, &kp N0 &kp N2 &kp N6 &kp D)     // m̥ (U+026D)
@@ -52,8 +81,8 @@
         IPA_MACRO(m_b_trill_vc, &kp N0 &kp N2 &kp N9 &kp N8) // ʙ (U+0298)
         IPA_MACRO(m_p_click, &kp N0 &kp N2 &kp N9 &kp N8)     // ʘ (U+0298)
         IPA_MACRO(m_b_implo, &kp N0 &kp N2 &kp N5 &kp N3)     // ɓ (U+0253)
-
         // 既存マクロ
+
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
@@ -63,50 +92,64 @@
 
     behaviors {
         // --- Pキーの分岐 (Non-sibilant Affricate / Fricative / Plosive) ---
+
         mm_p_lalt: mm_p_lalt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp P>, <&m_phi>;
+
             mods = <(MOD_LALT)>;
         };
+
         mm_p_final: mm_p_final {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mm_p_lalt>, <&m_p_phi>;
+
             mods = <(MOD_LCMD|MOD_RALT)>;
         };
 
         // --- Bキーの分岐 (Approximant / Fricative / Plosive / Trill) ---
+
         mm_b_lalt: mm_b_lalt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp B>, <&m_beta>;
+
             mods = <(MOD_LALT)>;
         };
+
         mm_b_ralt: mm_b_ralt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mm_b_lalt>, <&m_beta_ap>;
+
             mods = <(MOD_RALT)>;
         };
+
         mm_b_trill: mm_b_trill {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mm_b_ralt>, <&m_b_trill_vc>;
+
             mods = <(MOD_RCTL)>;
         };
+
         mm_b_final: mm_b_final {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mm_b_trill>, <&m_b_beta>;
+
             mods = <(MOD_LCMD|MOD_RALT)>;
         };
 
         // --- 特殊: ControlでのTap/Flap (B位置で発動) ---
+
         mm_b_flap: mm_b_flap {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mm_b_final>, <&m_v_flap>;
+
             mods = <(MOD_LCTL)>;
         };
     };
@@ -116,30 +159,32 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W          &kp E          &kp R             &kp T                                        &kp Y      &kp U  &lt 5 I   &kp O   &mm_p_final
-&kp A             &kp S          &kp D          &kp F             &kp G        &kp ESCAPE          &kp EQUAL   &kp H      &kp J  &kp K     &kp L   &kp MINUS
-&mt LEFT_SHIFT Z  &kp X          &kp C          &kp V             &mm_b_flap   &kp TAB             &parenthesis &kp N      &kp M  &kp COMMA &kp DOT &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN   &kp LEFT_ALT   &lt 6 LANG_HANJA  &lt 2 SPACE  &lt 3 LANG_HANGEUL  &kp BACKSPACE &lt 1 ENTER                   &kp DEL
+&kp Q         &kp W          &kp E         &kp R                          &kp T                                                                         &kp Y        &kp U  &lt 5 I    &kp O    &mm_p_final
+&kp A         &kp S          &kp D         &kp F                          &kp G                   &mkp MB1                               &kp EQUAL      &kp H        &kp J  &kp K      &kp L    &kp MINUS
+&kp Z         &kp X          &kp C         &kp V                          &kp B                   &mt LEFT_SHIFT MINUS                   &parenthesis   &kp N        &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
+&kp LEFT_GUI  &kp RIGHT_GUI  &kp LEFT_ALT  &mt RIGHT_ALT INTERNATIONAL_2  &mt LEFT_CONTROL SPACE  &mt RIGHT_CONTROL INTERNATIONAL_4      &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
             >;
         };
 
         // Layer 4 (Nasal用)
+
         IPA_NASAL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &m_m_vless
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                         &trans  &trans  &trans  &trans  &m_m_vless
+&trans  &trans  &trans  &trans  &trans     &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &m_m_vced  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
+&trans  &trans  &trans  &trans  &trans     &trans      &trans  &trans                          &trans
             >;
         };
 
         // Layer 5 (Click / Implosive用)
+
         IPA_IMPLO {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &m_p_click
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                          &trans  &trans  &trans  &trans  &m_p_click
+&trans  &trans  &trans  &trans  &trans      &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &m_b_implo  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
+&trans  &trans  &trans  &trans  &trans      &trans      &trans  &trans                          &trans
             >;
         };
 
