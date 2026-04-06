@@ -240,6 +240,16 @@
             flavor = "hold-preferred";
             bindings = <&mo>, <&mm_ipa_p_final>;
         };
+
+        // レイヤー5 + マクロ m_ipa_implo 用のカスタム挙動
+        lt_implo: layer_tap_implo {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_IMPLO";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&m_ipa_implo>;
+        };
     };
 
     keymap {
@@ -296,7 +306,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans                                 &trans  &trans               &trans  &trans  &m_ipa_click
 &trans  &trans  &trans  &trans  &trans  &trans                 &trans  &trans  &mkp_exit_AML LCLK   &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &lt 5 m_ipa_implo              &trans  &trans  &trans               &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &lt_implo 5 0                  &trans  &trans  &trans               &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                 &trans  &trans                                       &trans
             >;
         };
