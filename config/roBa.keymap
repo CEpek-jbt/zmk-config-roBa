@@ -199,7 +199,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mm_ipa_p>, <&m_ipa_p_phi>;
-            mods = <MOD_LCMD|MOD_RALT>;  // ← ( ) を消し、スペースも入れない
+            mods = <(MOD_LCMD|MOD_RALT)>; // ← ここを (MOD_LCMD|MOD_RALT) に！
         };
 
         mm_ipa_b_lalt: mm_ipa_b_lalt {
@@ -224,7 +224,8 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mm_ipa_b_rcnt>, <&m_ipa_b_beta>;
-            mods = <MOD_LCMD|MOD_RALT>;  // ← ここも ( ) を消して直接つなぐ
+            mods = <(MOD_LCMD|MOD_RALT)>; // ← ここも (MOD_LCMD|MOD_RALT) に！
+        };
         };
         };
         };
