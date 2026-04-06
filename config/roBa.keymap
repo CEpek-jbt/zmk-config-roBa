@@ -243,6 +243,16 @@
             bindings = <&mm_ipa_b_final>, <&m_ipa_v_flap>;
             mods = <(MOD_LCTL)>; // Left Control + B -> ⱱ̟
         };
+
+        // ltでmod-morphを使うためのラップ
+        lt_p: layer_tap_p {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_P";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&mm_ipa_p_final>;
+        };
     };
 
     keymap {
@@ -250,7 +260,7 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R             &kp T                                               &kp Y        &kp U  &lt 5 I    &kp O    &lt 5 mm_ipa_p_final
+&kp Q             &kp W         &kp E         &kp R             &kp T                                               &kp Y        &kp U  &lt 5 I    &kp O    &lt_p 5 0
 &kp A             &kp S         &kp D         &kp F             &kp G        &kp ESCAPE              &kp EQUAL      &kp H        &kp J  &kp K      &kp L    &kp MINUS
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V             &mm_ipa_b_flap &kp TAB                 &parenthesis   &kp N        &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
 &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 6 LANG_HANJA  &lt 2 SPACE  &lt 3 LANG_HANGEUL      &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
