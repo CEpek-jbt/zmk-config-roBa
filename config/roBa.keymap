@@ -224,7 +224,8 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mm_ipa_b_rcnt>, <&m_ipa_b_beta>;
-            mods = <(MOD_LCMD|MOD_RALT)>;
+            mods = <MOD_LCMD|MOD_RALT>; // ← ここも同様に修正
+        };
         };
         mm_ipa_b_flap: mm_ipa_b_flap {
             compatible = "zmk,behavior-mod-morph";
