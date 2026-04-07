@@ -304,9 +304,6 @@
             bindings = <&mo>, <&mm_p_final>; // カンマで分けて2つのbehaviorを指定
         };
 
-// keymap 内での使い方
-&lt_p 5 0  // 第2引数の 0 はダミーとして渡されます
-
         lt_implo: lt_implo {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
