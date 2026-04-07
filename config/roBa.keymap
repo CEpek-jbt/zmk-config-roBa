@@ -195,53 +195,68 @@
             max-tap-interrupt-ms = <250>;
         };
 
-        mm_ipa_p: mm_ipa_p {
+        // --- P 集約レイヤー ---
+        mm_p_lalt: mm_p_lalt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp P>, <&m_ipa_phi>;
+            bindings = <&kp P>, <&m_ipa_phi>; // ɸ
             mods = <(MOD_LALT)>;
         };
-
-        mm_ipa_p_final: mm_ipa_p_final {
+        mm_p_p_phi: mm_p_p_phi {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mm_ipa_p>, <&m_ipa_p_phi>;
+            bindings = <&mm_p_lalt>, <&m_ipa_p_phi>; // p͡ɸ
             mods = <0x0840>; 
-        };    
-
-        mm_ipa_b_lalt: mm_ipa_b_lalt {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp B>, <&m_ipa_beta>;
-            mods = <(MOD_LALT)>;
         };
-
-        mm_ipa_b_ralt: mm_ipa_b_ralt {
+        mm_p_m_vl: mm_p_m_vl {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mm_ipa_b_lalt>, <&m_ipa_beta_app>;
-            mods = <(MOD_RALT)>;
+            bindings = <&mm_p_p_phi>, <&m_ipa_m_vl>; // m̥
+            mods = <(MOD_LCTL)>;
         };
-
-        mm_ipa_b_rcnt: mm_ipa_b_rcnt {
+        mm_p_b_tr_vl: mm_p_b_tr_vl {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mm_ipa_b_ralt>, <&m_ipa_b_trill>;
+            bindings = <&mm_p_m_vl>, <&m_ipa_b_trill_vl>; // ʙ̥
             mods = <(MOD_RCTL)>;
         };
-
-        mm_ipa_b_final: mm_ipa_b_final {
+        mm_p_final: mm_p_final {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mm_ipa_b_rcnt>, <&m_ipa_b_beta>;
-            mods = <0x0840>; 
+            bindings = <&mm_p_b_tr_vl>, <&m_ipa_click>; // ʘ
+            mods = <(MOD_RGUI)>;
         };
 
-        mm_ipa_b_flap: mm_ipa_b_flap {
+        // --- B 集約レイヤー ---
+        mm_b_lalt: mm_b_lalt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mm_ipa_b_final>, <&m_ipa_v_flap>;
+            bindings = <&kp B>, <&m_ipa_beta>; // β
+            mods = <(MOD_LALT)>;
+        };
+        mm_b_b_beta: mm_b_b_beta {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mm_b_lalt>, <&m_ipa_b_beta>; // b͡β
+            mods = <0x0840>; 
+        };
+        mm_b_m: mm_b_m {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mm_b_b_beta>, <&m_ipa_m>; // m
             mods = <(MOD_LCTL)>;
+        };
+        mm_b_trill: mm_b_trill {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mm_b_m>, <&m_ipa_b_trill>; // ʙ
+            mods = <(MOD_RCTL)>;
+        };
+        mm_b_final: mm_b_final {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mm_b_trill>, <&m_ipa_implo>; // ɓ
+            mods = <(MOD_RGUI)>;
         };
 
         lt_p: layer_tap_p {
@@ -250,7 +265,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&mo>, <&mm_ipa_p_final>;
+            bindings = <&mo>, <&mm_p_final>;
         };
 
         lt_implo: layer_tap_implo {
@@ -261,6 +276,22 @@
             flavor = "hold-preferred";
             bindings = <&mo>, <&m_ipa_implo>;
         };
+        
+        lt_nasal: lt_nasal {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_NASAL";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp N>;
+        };
+
+        lt_NUM: lt_NUM {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_NUM";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp EQUAL>;
+        };
     };
 
     keymap {
@@ -268,20 +299,20 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R             &kp T                                                                               &kp Y        &kp U  &lt 5 I    &kp O    &lt_p 5 P
-&kp A             &kp S         &kp D         &kp F             &kp G        &mkp MB1                                               &lt_NUM EQUAL       &kp H        &kp J  &kp K    &kp L   &kp ASTRK
-&kp Z  &kp X         &kp C         &kp V             &mm_ipa_b_flap &mt LEFT_SHIFT TAB                                                 &lt_implo 7 0  &lt_nasal 8 N        &kp M  &kp COMMA  &kp DOT  &kp SEMICOLON
-&mt LEFT_WIN K_COPY        &mt RIGHT_WIN K_PASTE  &mt LEFT_ALT K_UNDO  &mt RIGHT_ALT INTERNATIONAL_4  &mt LEFT_CONTROL SPACE  &mt RIGHT_CONTROL INTERNATIONAL_2                       &kp BACKSPACE  &mt RIGHT_SHIFT ENTER                             &kp DEL
+&kp Q               &kp W          &kp E          &kp R              &kp T                                                                                               &kp Y        &kp U  &lt 5 I    &kp O    &lt_p 5 P
+&kp A               &kp S          &kp D          &kp F              &kp G         &mkp MB1                                                               &lt_NUM 6 0         &kp H        &kp J  &kp K    &kp L   &kp ASTRK
+&kp Z  &kp X           &kp C          &kp V              &mm_b_final &mt LEFT_SHIFT TAB                                                                  &lt_implo 7 0  &lt_nasal 8 N        &kp M  &kp COMMA  &kp DOT  &kp SEMICOLON
+&mt LEFT_WIN K_COPY        &mt RIGHT_WIN K_PASTE  &mt LEFT_ALT K_UNDO  &mt RIGHT_ALT INTERNATIONAL_4  &mt LEFT_CONTROL SPACE  &mt RIGHT_CONTROL INTERNATIONAL_2                        &kp BACKSPACE  &mt RIGHT_SHIFT ENTER                               &kp DEL
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         SYMBOLS {
             bindings = <
-&kp ESCAPE  &kp AMPERSAND    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                                         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans         &trans             &trans
-&kp TILDE   &kp DOLLAR       &kp PERCENT   &kp CARET             &trans                 &trans                 &trans         &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SEMICOLON  &kp SINGLE_QUOTE   &kp BACKSLASH
-&kp GRAVE   &kp EXCLAMATION  &kp AT_SIGN   &kp HASH              &trans                 &trans                 &trans         &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON      &kp DOUBLE_QUOTES  &kp PIPE
-&trans      &trans           &trans        &trans                &trans                 &trans                 &trans         &trans                                                                         &trans
+&kp ESCAPE  &kp AMPERSAND    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                                          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans         &trans             &trans
+&kp TILDE   &kp DOLLAR       &kp PERCENT   &kp CARET             &trans                  &trans                  &trans         &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SEMICOLON  &kp SINGLE_QUOTE   &kp BACKSLASH
+&kp GRAVE   &kp EXCLAMATION  &kp AT_SIGN   &kp HASH              &trans                  &trans                  &trans         &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON      &kp DOUBLE_QUOTES  &kp PIPE
+&trans      &trans           &trans        &trans                &trans                  &trans                  &trans         &trans                                                                         &trans
             >;
         };
 
@@ -299,17 +330,17 @@
 &kp LG(LEFT_ARROW)  &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &kp LG(RIGHT_ARROW)                                       &kp LG(LEFT_ARROW)  &kp LS(LC(TAB))         &kp UP_ARROW    &kp LC(TAB)              &kp LG(RIGHT_ARROW)
 &kp HOME            &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END              &trans               &trans         &kp HOME            &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END
 &kp LEFT_SHIFT      &kp LG(LC(LEFT_ARROW))  &trans          &kp LG(LC(RIGHT_ARROW))  &trans               &trans               &trans         &trans              &kp LC(LG(LEFT_ARROW))  &trans          &kp LC(LG(RIGHT_ARROW))  &trans
-&trans              &trans                  &trans          &trans                   &trans               &trans               &trans         &trans                                                                               &trans
+&trans              &trans                  &trans          &trans                   &trans               &trans               &trans         &trans                                                                              &trans
             >;
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
         MOUSE {
             bindings = <
-&to_layer_0 Q  &to_layer_0 W  &to_layer_0 E  &to_layer_0 R             &to_layer_0 T                                                    &to_layer_0 Y    &to_layer_0 U      &kp LC(T)          &to_layer_0 O      &m_ipa_m_vl
-&to_layer_0 A  &to_layer_0 S  &to_layer_0 D  &to_layer_0 F             &to_layer_0 G  &trans                                   &kp LC(V)  &kp LC(LS(TAB))  &mkp_exit_AML MB1  &mkp_exit_AML MB3  &mkp_exit_AML MB2  &kp LC(TAB)
-&to_layer_0 Z  &to_layer_0 X  &to_layer_0 C  &to_layer_0 V             &m_ipa_m       &trans                                   &kp LC(C)  &to_layer_0 N    &mkp MB4           &kp LC(W)          &mkp MB5           &trans
-&trans         &trans         &trans         &to_layer_0 LANG_HANJA  &trans         &to_layer_0 LANG_HANGEUL                &trans     &trans                                                                    &trans
+&to_layer_0 Q  &to_layer_0 W  &to_layer_0 E  &to_layer_0 R              &to_layer_0 T                                                                    &to_layer_0 Y    &to_layer_0 U      &kp LC(T)          &to_layer_0 O      &m_ipa_m_vl
+&to_layer_0 A  &to_layer_0 S  &to_layer_0 D  &to_layer_0 F              &to_layer_0 G  &trans                                                   &kp LC(V)  &kp LC(LS(TAB))  &mkp_exit_AML MB1  &mkp_exit_AML MB3  &mkp_exit_AML MB2  &kp LC(TAB)
+&to_layer_0 Z  &to_layer_0 X  &to_layer_0 C  &to_layer_0 V              &m_ipa_m       &trans                                                   &kp LC(C)  &to_layer_0 N    &mkp MB4            &kp LC(W)          &mkp MB5           &trans
+&trans         &trans         &trans         &to_layer_0 LANG_HANJA  &trans         &to_layer_0 LANG_HANGEUL                &trans     &trans                                                                              &trans
             >;
         };
 
@@ -325,9 +356,9 @@
         layer_6 {
             bindings = <
 &trans  &trans        &trans        &trans        &trans                                     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans        &trans        &trans        &trans  &trans               &trans        &trans        &trans        &trans        &trans        &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans               &bootloader   &trans        &trans        &trans        &trans        &bt BT_CLR
-&trans  &trans        &trans        &trans        &trans  &trans               &trans        &trans                                                  &bt BT_CLR_ALL
+&trans  &trans        &trans        &trans        &trans  &trans                &trans        &trans        &trans        &trans        &trans        &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans                &bootloader   &trans        &trans        &trans        &trans        &bt BT_CLR
+&trans  &trans        &trans        &trans        &trans  &trans                &trans        &trans                                                  &bt BT_CLR_ALL
             >;
         };
 
