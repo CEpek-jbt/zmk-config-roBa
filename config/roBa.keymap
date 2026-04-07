@@ -199,7 +199,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mm_ipa_p>, <&m_ipa_p_phi>;
-            mods = <MOD_LCMD MOD_RALT>;
+            mods = <0x0800 0x0040>;
         };
 
         mm_ipa_b_lalt: mm_ipa_b_lalt {
@@ -227,7 +227,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mm_ipa_b_rcnt>, <&m_ipa_b_beta>;
-            mods = <MOD_LCMD MOD_RALT>;
+            mods = <0x0800 0x0040>;
         };
 
         mm_ipa_b_flap: mm_ipa_b_flap {
@@ -254,7 +254,7 @@
             flavor = "hold-preferred";
             bindings = <&mo>, <&m_ipa_implo>;
         };
-    };
+    }; // ここで behaviors が終わる
 
     keymap {
         compatible = "zmk,keymap";
