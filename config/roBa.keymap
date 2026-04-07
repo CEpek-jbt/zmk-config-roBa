@@ -51,17 +51,11 @@
         BT2 { bindings = <&bt BT_SEL 2>; key-positions = <28 24>; };
 
         // --- レイヤー移動コンボ ---
-        // PLOS(36:L-WIN位置) + NSFR(38:L-ALT位置) -> NSAF
         combo_nsaffric { timeout-ms = <50>; key-positions = <36 38>; bindings = <&mo L_NSAF>; };
-        // PLOS(36:L-WIN位置) + SFR(37:R-WIN位置) -> SAF
         combo_saffric { timeout-ms = <50>; key-positions = <36 37>; bindings = <&mo L_SAF>; };
-        // NSFR(38:L-ALT位置) + R-SHIFT(41:Enter位置) -> LFR
         combo_lfric { timeout-ms = <50>; key-positions = <38 41>; bindings = <&mo L_LFR>; };
-        // PLOS(36) + SFR(37) + R-SHIFT(41) -> LAF
         combo_laffric { timeout-ms = <50>; key-positions = <36 37 41>; bindings = <&mo L_LAF>; };
-        // APPR(39:R-ALT位置) + R-SHIFT(41) -> LAPP
         combo_lapprox { timeout-ms = <50>; key-positions = <39 41>; bindings = <&mo L_LAPP>; };
-        // TAP(40:L-CTRL位置) + R-SHIFT(41) -> LTAP
         combo_ltap { timeout-ms = <50>; key-positions = <40 41>; bindings = <&mo L_LTAP>; };
     };
 
@@ -69,11 +63,11 @@
         to_layer_0: to_layer_0 { compatible = "zmk,behavior-macro-one-param"; #binding-cells = <1>; bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>; };
         mkp_exit_AML: mkp_exit_AML { compatible = "zmk,behavior-macro-one-param"; #binding-cells = <1>; bindings = <&macro_press>, <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>, <&macro_pause_for_release>, <&macro_release>, <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>, <&macro_tap>, <&sl 4>; };
         
-        // --- IPAマクロ ---
+        // --- IPAマクロ (修正済み) ---
         m_ipa_phi: m_ipa_phi { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp N7 &kp N8>, <&macro_release &kp LALT>; };
         m_ipa_beta: m_ipa_beta { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp B &kp N2>, <&macro_release &kp LALT>; };
         m_ipa_p_phi: m_ipa_p_phi { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N7 &kp N0 &kp N0 &kp N3 &kp N6 &kp N1 &kp N0 &kp N2 &kp N7 &kp N8>, <&macro_release &kp LALT>; };
-        m_ipa_b_beta: m_ipa_b_beta { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N6 &kp D &kp N0 &kp N3 &kp N6 &kp N1 &kp N0 &kp N3 & b & n2>, <&macro_release &kp LALT>; };
+        m_ipa_b_beta: m_ipa_b_beta { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N6 &kp D &kp N0 &kp N3 &kp N6 &kp N1 &kp N0 &kp N3 &kp B &kp N2>, <&macro_release &kp LALT>; };
         m_ipa_b_trill_vl: m_ipa_b_trill_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp N9 &kp N9 &kp N0 &kp N3 &kp N2 &kp N5>, <&macro_release &kp LALT>; };
         m_ipa_b_trill: m_ipa_b_trill { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp N9 &kp N9>, <&macro_release &kp LALT>; };
         m_ipa_beta_approx: m_ipa_beta_approx { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp B &kp N2 &kp N0 &kp N3 &kp N1 &kp N1>, <&macro_release &kp LALT>; };
@@ -82,16 +76,6 @@
 
     behaviors {
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down { compatible = "zmk,behavior-sensor-rotate"; #sensor-binding-cells = <0>; bindings = <&msc SCRL_DOWN &msc SCRL_UP>; tap-ms = <20>; };
-        
-        lt_p: lt_p {
-            compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>;
-            tapping-term-ms = <200>; flavor = "hold-preferred";
-            bindings = <&mo, &kp>; // デフォルトレイヤー用
-        };
-        
-        // 元の mm_p_final / mm_b_final はレイヤー移動がメインになったため、
-        // もし単体で使いたい場合はマクロとして呼び出す形になりますが、
-        // 今回は「レイヤーに移動してPを叩く」方式に統一します。
     };
 
     keymap {
