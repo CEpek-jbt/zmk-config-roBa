@@ -9,7 +9,7 @@
 
 #define MOUSE 4
 #define SCROLL 5
-#define NUM 
+#define NUM 6
 #define IMPLO 7
 #define NASAL 8
 #define PLOSIVE 9
@@ -295,13 +295,17 @@
         };
 
         // --- Hold-Tap 定義 ---
+// behaviors 内の定義修正
         lt_p: lt_p {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&mo &mm_p_final>;
+            bindings = <&mo>, <&mm_p_final>; // カンマで分けて2つのbehaviorを指定
         };
+
+// keymap 内での使い方
+&lt_p 5 0  // 第2引数の 0 はダミーとして渡されます
 
         lt_implo: lt_implo {
             compatible = "zmk,behavior-hold-tap";
