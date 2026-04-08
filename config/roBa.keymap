@@ -96,8 +96,6 @@
 
     macros {
         // 【重要】IPAレイヤー専用の切り替えマクロ
-        // 押している間：入力ソース切替 -> 指定レイヤーON
-        // 離したとき：指定レイヤーOFF -> 入力ソース戻し
         ipa_sw: ipa_sw {
             compatible = "zmk,behavior-macro-two-param";
             #binding-cells = <2>;
@@ -219,7 +217,7 @@
             tap-ms = <20>;
         };
 
-        // --- P 集約 (p, m̥, ɸ, p͡ɸ, ʙ̥, ʘ) ---
+        // --- P 集約 ---
         mm_p_lalt: mm_p_lalt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -251,7 +249,7 @@
             mods = <(MOD_RGUI)>;
         };
 
-        // --- B 集約 (b, m, β, b͡β, ʙ, ɓ) ---
+        // --- B 集約 ---
         mm_b_lalt: mm_b_lalt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -292,7 +290,6 @@
             bindings = <&mo>, <&mm_p_final>;
         };
 
-        // IPAレイヤー用Hold-Tap (言語切り替えマクロを呼び出す)
         lt_ipa: lt_ipa {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -317,7 +314,7 @@
 &kp Q               &kp W          &kp E          &kp R              &kp T                                                                                      &kp Y        &kp U  &lt 5 I    &kp O    &lt_p 5 0
 &kp A               &kp S          &kp D          &kp F              &kp G         &mkp MB1                                                                     &lt_NUM 6 EQUAL     &kp H        &kp J  &kp K    &kp L   &kp ASTRK
 &kp Z  &kp X            &kp C          &kp V              &mm_b_final &mt LEFT_SHIFT TAB                                                                        &lt_ipa IMPLO 0  &lt_ipa NASAL N        &kp M  &kp COMMA  &kp DOT  &kp SEMICOLON
-&ipa_sw PLOSIVE 0          &ipa_sw SFRICATIVE 0 &ipa_sw NSFRICATIVE 0 &ipa_sw APPROXIMANT 0 &ipa_sw TAP 0 &ipa_sw TRILL 0                        &kp BACKSPACE  &mt RIGHT_SHIFT ENTER                               &kp DEL
+&ipa_sw PLOSIVE K_COPY          &ipa_sw SFRICATIVE K_PASTE &ipa_sw NSFRICATIVE K_UNDO &ipa_sw APPROXIMANT LANG2 &ipa_sw TAP SPACE &ipa_sw TRILL LANG1                        &kp BACKSPACE  &mt RIGHT_SHIFT ENTER                               &kp DEL
             >;
             sensor-bindings = <&scroll_up_down>;
         };
