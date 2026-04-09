@@ -429,7 +429,14 @@
     m_nsa_uv_vd: m_nsa_uv_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&macro_tap &kp N0 &kp X &kp N2 &kp N6 &kp N2 &kp N0 &kp X &kp N3 &kp N6 &kp N1 &kp N0 &kp X &kp N2 &kp N8 &kp N1>; }; 
     // ʡ̥͡ʜ (Epiglottal_stop + Tie + voiceless_diacritic + Small_H)
-    m_nsa_ph_vl: m_nsa_ph_vl { compatible = "zmk,behavior-macro"; #binding-
+    m_nsa_ph_vl: m_nsa_ph_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+        bindings = <&macro_tap &kp N0 &kp X &kp N2 &kp N9 &kp N4 &kp N0 &kp X &kp N3 &kp N6 &kp N1 &kp N0 &kp X &kp N3 &kp N2 &kp N5 &kp N0 &kp X &kp N2 &kp N9 &kp C>; }; 
+    // ʡ͡ʢ (Epiglottal_stop + Tie + Reversed_Glottal_Stop)
+    m_nsa_ph_vd: m_nsa_ph_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+        bindings = <&macro_tap &kp N0 &kp X &kp N2 &kp N9 &kp N4 &kp N0 &kp X &kp N3 &kp N6 &kp N1 &kp N0 &kp X &kp N2 &kp N9 &kp N2>; }; 
+    // ʔ͡h (Glottal_stop + Tie + h)
+    m_nsa_gl_vl: m_nsa_gl_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+        bindings = <&macro_tap &kp N0 &kp X &kp N2 &kp N9 &kp N4 &kp N0 &kp X &kp N3 &kp N6 &kp N1 &kp H>; };
 
     // --- Layer 14: Lateral Affricate (側面破擦音) ---
     m_la_alv_vl: m_la_alv_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
