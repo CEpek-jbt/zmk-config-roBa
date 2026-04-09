@@ -505,6 +505,32 @@ bindings = <&kp T &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp U &kp N0 &kp N2 &kp N8 &
 m_sa_palv_vd: m_sa_palv_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
 bindings = <&kp D &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp U &kp N0 &kp N2 &kp N9 &kp N2 &kp RET>; };
 
+m_sa_pala_vl: m_sa_pala_vl {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <1>;
+    tap-ms = <1>;
+    bindings = <
+        &kp U &kp N0 &kp N0 &kp N7 &kp N4   // t (U+0074)
+        &kp U &kp N0 &kp N3 &kp N6 &kp N1   // ͡ (U+0361)
+        &kp U &kp N0 &kp N2 &kp N5 &kp N5   // ɕ (U+0255)
+        &kp RET
+    >;
+}; // t͡ɕ
+
+m_sa_pala_vd: m_sa_pala_vd {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <1>;
+    tap-ms = <1>;
+    bindings = <
+        &kp U &kp N0 &kp N0 &kp N6 &kp N4   // d (U+0064)
+        &kp U &kp N0 &kp N3 &kp N6 &kp N1   // ͡ (U+0361)
+        &kp U &kp N0 &kp N2 &kp N9 &kp N1   // ʑ (U+0291)
+        &kp RET
+    >;
+}; // d͡ʑ
+
 m_sa_ret_vl: m_sa_ret_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
 bindings = <&kp U &kp N0 &kp N2 &kp N8 &kp N8 &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp U &kp N0 &kp N2 &kp N8 &kp N2 &kp RET>; };
 
@@ -892,9 +918,9 @@ SFRICATIVE {
 
 SAFFRICATE {
     bindings = <
-        &m_sa_uv_vl &trans &trans &m_sa_uv_vd &m_sa_den_vl &m_sa_pala_vd &trans &trans &trans &trans
-        &trans &m_sa_alv_vl &m_sa_den_vd &trans &m_sa_vel_vd &trans &trans &trans &m_sa_palv_vd &m_sa_vel_vl &trans &m_sa_glo_vl
-        &m_sa_alv_vd &m_sa_palv_vl &m_sa_pala_vl &trans &trans &trans &trans &m_sa_epi_vl &m_sa_epi_vd &m_sa_ret_vl &m_sa_ret_vd &trans
+        &trans &trans &trans &trans &m_sa_den_vl &m_sa_pala_vd &trans &trans &trans &trans
+        &trans &m_sa_alv_vl &m_sa_den_vd &trans &trans &trans &trans &trans &m_sa_palv_vd &trans &trans &trans
+        &m_sa_alv_vd &m_sa_palv_vl &m_sa_pala_vl &trans &trans &trans &trans &trans &trans &m_sa_ret_vl &m_sa_ret_vd &trans
         &trans &trans &trans &trans &trans &trans &trans &trans &trans
     >;
 };
