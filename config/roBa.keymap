@@ -795,9 +795,9 @@ TR  TR  TR  TR  TR  TR                                  TR  TR            TR
 
         NSAFFRICATE { // Layer 10
             bindings = <
-&m_nsa_uvu_vl TR  TR  &m_nsa_uvu_vd &m_nsa_den_vl                &m_nsa_pal_vd TR            TR  TR            &m_nsa_bil_vl
+&m_nsa_uvu_vl TR  TR  &m_nsa_uvu_vd &m_nsa_den_vl                &m_nsa_pal_vd TR            TR  TR            &m_n_bil_vl
 TR  &m_nsa_alv_vl &m_nsa_den_vd &m_nsa_lab_vl  &m_nsa_vel_vd TR    TR  TR  &m_nsa_palv_vd &m_nsa_vel_vl TR  &m_nsa_glo_vl
-&m_nsa_alv_vd &m_nsa_palv_vl &m_nsa_pal_vl &m_nsa_lab_vd &m_nsa_bil_vd TR      TR  &m_nsa_epi_vl &m_nsa_epi_vd &m_nsa_ret_vl &m_nsa_ret_vd TR
+&m_nsa_alv_vd &m_nsa_palv_vl &m_nsa_pal_vl &m_nsa_lab_vd &m_n_bil_vd TR      TR  &m_nsa_epi_vl &m_nsa_epi_vd &m_nsa_ret_vl &m_nsa_ret_vd TR
 TR  TR  TR  TR  TR  TR                                  TR  TR            TR
             >;
         };
