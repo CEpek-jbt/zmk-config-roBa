@@ -638,12 +638,14 @@
             tap-ms = <20>;
         };
 
-        lt_ipa: lt_ipa {
+        // 名前を lt_ipa から ipa_sw に変更、
+        // もしくは ipa_sw というラベルを付与する
+        ipa_sw: lt_ipa {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             flavor = "hold-preferred";
-            bindings = <&ipa_sw>, <&kp>;
+            bindings = <&mo>, <&kp>; // レイヤー(mo)とキー(kp)を組み合わせる標準的な設定
         };
 
         lt_NUM: lt_NUM {
