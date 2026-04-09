@@ -359,9 +359,7 @@
         MAC_IPA(mac_ipa_0265, N0, N2, N6, N5)
         MAC_IPA(mac_ipa_028D, N0, N2, N8, D)
         MAC_IPA(mac_ipa_0267, N0, N2, N6, N7)
-
-        // エラー修正: 定義
-        MAC_IPA(mac_ipa_02BC, N0, N2, B, C)
+        MAC_IPA(mac_ipa_02BC, N0, N2, B, C) // Ejective用（'）
 
         // 合字・複数文字からなるIPA記号用のマクロ
         mac_ipa_006E_0361_006D: mac_ipa_006E_0361_006D {
@@ -467,34 +465,86 @@
         // ==========================================
         // Vowels (母音群)
         // ==========================================
-        MAC_IPA(m_v_8_1, N0, N0, N0, N0) MAC_IPA(m_v_8_2, N0, N0, N0, N0) MAC_IPA(m_v_8_5, N0, N0, N0, N0)
-        MAC_IPA(m_v_8_6, N0, N0, N0, N0) MAC_IPA(m_v_8_7, N0, N0, N0, N0) MAC_IPA(m_v_8_10, N0, N0, N0, N0)
-        MAC_IPA(m_v_11_1, N0, N0, N0, N0) MAC_IPA(m_v_11_2, N0, N0, N0, N0) MAC_IPA(m_v_11_5, N0, N0, N0, N0)
-        MAC_IPA(m_v_11_6, N0, N0, N0, N0) MAC_IPA(m_v_11_7, N0, N0, N0, N0) MAC_IPA(m_v_11_10, N0, N0, N0, N0)
-        MAC_IPA(m_v_9_1, N0, N0, N0, N0) MAC_IPA(m_v_9_2, N0, N0, N0, N0) MAC_IPA(m_v_9_5, N0, N0, N0, N0)
-        MAC_IPA(m_v_9_6, N0, N0, N0, N0) MAC_IPA(m_v_9_7, N0, N0, N0, N0) MAC_IPA(m_v_9_10, N0, N0, N0, N0)
-        MAC_IPA(m_v_15_1, N0, N0, N0, N0) MAC_IPA(m_v_15_2, N0, N0, N0, N0) MAC_IPA(m_v_15_5, N0, N0, N0, N0)
-        MAC_IPA(m_v_15_6, N0, N0, N0, N0) MAC_IPA(m_v_15_7, N0, N0, N0, N0) MAC_IPA(m_v_15_10, N0, N0, N0, N0)
-        MAC_IPA(m_v_17_1, N0, N0, N0, N0) MAC_IPA(m_v_17_2, N0, N0, N0, N0) MAC_IPA(m_v_17_5, N0, N0, N0, N0)
-        MAC_IPA(m_v_17_6, N0, N0, N0, N0) MAC_IPA(m_v_17_7, N0, N0, N0, N0) MAC_IPA(m_v_17_10, N0, N0, N0, N0)
-        MAC_IPA(m_v_19_1, N0, N0, N0, N0) MAC_IPA(m_v_19_2, N0, N0, N0, N0) MAC_IPA(m_v_19_5, N0, N0, N0, N0)
-        MAC_IPA(m_v_19_6, N0, N0, N0, N0) MAC_IPA(m_v_19_7, N0, N0, N0, N0) MAC_IPA(m_v_19_10, N0, N0, N0, N0)
-        MAC_IPA(m_v_20_1, N0, N0, N0, N0) MAC_IPA(m_v_20_2, N0, N0, N0, N0) MAC_IPA(m_v_20_5, N0, N0, N0, N0)
-        MAC_IPA(m_v_20_6, N0, N0, N0, N0) MAC_IPA(m_v_20_7, N0, N0, N0, N0) MAC_IPA(m_v_20_10, N0, N0, N0, N0)
+        // Layer 8 (close)
+        MAC_IPA(m_v_8_1, N0, N0, N0, N0)  // ʉ (W 1)
+        MAC_IPA(m_v_8_2, N0, N0, N0, N0)  // ɯ (E 2)
+        MAC_IPA(m_v_8_5, N0, N0, N0, N0)  // y (Y 5)
+        MAC_IPA(m_v_8_6, N0, N0, N0, N0)  // u (U 6)
+        MAC_IPA(m_v_8_7, N0, N0, N0, N0)  // i (I 7)
+        MAC_IPA(m_v_8_10, N0, N0, N0, N0) // ɨ (A 10)
 
-        // Bilabial & Labiodental
+        // Layer 11 (Near-close)
+        MAC_IPA(m_v_11_1, N0, N0, N0, N0)  // ʉ̞ (W 1)
+        MAC_IPA(m_v_11_2, N0, N0, N0, N0)  // ɯ̞ (E 2)
+        MAC_IPA(m_v_11_5, N0, N0, N0, N0)  // ʏ (Y 5)
+        MAC_IPA(m_v_11_6, N0, N0, N0, N0)  // ʊ (U 6)
+        MAC_IPA(m_v_11_7, N0, N0, N0, N0)  // ɪ (I 7)
+        MAC_IPA(m_v_11_10, N0, N0, N0, N0) // ɨ̞ (A 10)
+
+        // Layer 9 (close-mid)
+        MAC_IPA(m_v_9_1, N0, N0, N0, N0)  // ɵ (W 1)
+        MAC_IPA(m_v_9_2, N0, N0, N0, N0)  // ɤ (E 2)
+        MAC_IPA(m_v_9_5, N0, N0, N0, N0)  // ø (Y 5)
+        MAC_IPA(m_v_9_6, N0, N0, N0, N0)  // o (U 6)
+        MAC_IPA(m_v_9_7, N0, N0, N0, N0)  // e (I 7)
+        MAC_IPA(m_v_9_10, N0, N0, N0, N0) // ɘ (A 10)
+
+        // Layer 15 (mid)
+        MAC_IPA(m_v_15_1, N0, N0, N0, N0)  // ɵ̞ (W 1)
+        MAC_IPA(m_v_15_2, N0, N0, N0, N0)  // ɤ̞ (E 2)
+        MAC_IPA(m_v_15_5, N0, N0, N0, N0)  // ø̞ (Y 5)
+        MAC_IPA(m_v_15_6, N0, N0, N0, N0)  // o̞ (U 6)
+        MAC_IPA(m_v_15_7, N0, N0, N0, N0)  // e̞ (I 7)
+        MAC_IPA(m_v_15_10, N0, N0, N0, N0) // ə (A 10)
+
+        // Layer 17 (open-mid)
+        MAC_IPA(m_v_17_1, N0, N0, N0, N0)  // ɞ (W 1)
+        MAC_IPA(m_v_17_2, N0, N0, N0, N0)  // ʌ (E 2)
+        MAC_IPA(m_v_17_5, N0, N0, N0, N0)  // œ (Y 5)
+        MAC_IPA(m_v_17_6, N0, N0, N0, N0)  // ɔ (U 6)
+        MAC_IPA(m_v_17_7, N0, N0, N0, N0)  // ɛ (I 7)
+        MAC_IPA(m_v_17_10, N0, N0, N0, N0) // з (A 10)
+
+        // Layer 19 (Near-open)
+        MAC_IPA(m_v_19_1, N0, N0, N0, N0)  // ɞ̞ (W 1)
+        MAC_IPA(m_v_19_2, N0, N0, N0, N0)  // ɑ̝ (E 2)
+        MAC_IPA(m_v_19_5, N0, N0, N0, N0)  // œ̞ (Y 5)
+        MAC_IPA(m_v_19_6, N0, N0, N0, N0)  // ɒ̝ (U 6)
+        MAC_IPA(m_v_19_7, N0, N0, N0, N0)  // æ (I 7)
+        MAC_IPA(m_v_19_10, N0, N0, N0, N0) // ɐ (A 10)
+
+        // Layer 20 (Open)
+        MAC_IPA(m_v_20_1, N0, N0, N0, N0)  // ɒ̈ (W 1)
+        MAC_IPA(m_v_20_2, N0, N0, N0, N0)  // ɑ (E 2)
+        MAC_IPA(m_v_20_5, N0, N0, N0, N0)  // ɶ (Y 5)
+        MAC_IPA(m_v_20_6, N0, N0, N0, N0)  // ɒ (U 6)
+        MAC_IPA(m_v_20_7, N0, N0, N0, N0)  // a (I 7)
+        MAC_IPA(m_v_20_10, N0, N0, N0, N0) // ä (A 10)
+
+
+        // 新規追加: Bilabial (両唇音) & Labiodental (唇歯音)
         MAC_IPA(m_n_bil_vl, N0, N0, N0, N0) MAC_IPA(m_n_bil_vd, N0, N0, N0, N0)
         MAC_IPA(m_n_lab_vl, N0, N0, N0, N0) MAC_IPA(m_n_lab_vd, N0, N0, N0, N0)
+
         MAC_IPA(m_p_bil_vl, N0, N0, N0, N0) MAC_IPA(m_p_bil_vd, N0, N0, N0, N0)
         MAC_IPA(m_p_lab_vl, N0, N0, N0, N0) MAC_IPA(m_p_lab_vd, N0, N0, N0, N0)
+
         MAC_IPA(m_nsf_bil_vl, N0, N0, N0, N0) MAC_IPA(m_nsf_bil_vd, N0, N0, N0, N0)
         MAC_IPA(m_nsf_lab_vl, N0, N0, N0, N0) MAC_IPA(m_nsf_lab_vd, N0, N0, N0, N0)
+
         MAC_IPA(m_nsa_bil_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_bil_vd, N0, N0, N0, N0)
         MAC_IPA(m_nsa_lab_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_lab_vd, N0, N0, N0, N0)
-        MAC_IPA(m_ap_bil_vd, N0, N0, N0, N0) MAC_IPA(m_ap_lab_vd, N0, N0, N0, N0)
-        MAC_IPA(m_tap_bil_vd, N0, N0, N0, N0) MAC_IPA(m_tap_lab_vd, N0, N0, N0, N0)
+
+        MAC_IPA(m_ap_bil_vd, N0, N0, N0, N0)
+        MAC_IPA(m_ap_lab_vd, N0, N0, N0, N0)
+
+        MAC_IPA(m_tap_bil_vd, N0, N0, N0, N0)
+        MAC_IPA(m_tap_lab_vd, N0, N0, N0, N0)
+
         MAC_IPA(m_tr_bil_vl, N0, N0, N0, N0) MAC_IPA(m_tr_bil_vd, N0, N0, N0, N0)
+
         MAC_IPA(m_im_bil_vl, N0, N0, N0, N0) MAC_IPA(m_im_bil_vd, N0, N0, N0, N0)
+
 
         // Layer 7: Nasal
         MAC_IPA(m_n_den_vl, N0, N3, N2, A) MAC_IPA(m_n_den_vd, N0, N0, N6, E)
@@ -512,10 +562,132 @@
         MAC_IPA(m_p_pal_vl, N0, N0, N6, N3) MAC_IPA(m_p_pal_vd, N0, N2, N5, F)
         MAC_IPA(m_p_vel_vl, N0, N0, N6, B) MAC_IPA(m_p_vel_vd, N0, N0, N6, N7)
         MAC_IPA(m_p_uvu_vl, N0, N0, N7, N1) MAC_IPA(m_p_uvu_vd, N0, N2, N6, N2)
-        MAC_IPA(m_p_epi_vl, N0, N2, A, N1) MAC_IPA(m_p_epi_vd, N0, N2, A, N1)
+        MAC_IPA(m_p_epi_vl, N0, N2, A, N1) MAC_IPA(m_p_epi_vd, N0, N2, N9, N4)
+
+        // Layer 9: Non-sibilant fricative
+        MAC_IPA(m_nsf_den_vl, N0, N3, B, N8) MAC_IPA(m_nsf_den_vd, N0, N0, F, N0)
+        MAC_IPA(m_nsf_alv_vl, N0, N3, B, N8) MAC_IPA(m_nsf_alv_vd, N0, N0, F, N0)
+        MAC_IPA(m_nsf_palv_vl, N0, N2, N7, N9) MAC_IPA(m_nsf_palv_vd, N0, N2, N7, N9)
+        MAC_IPA(m_nsf_ret_vl, N0, N2, N7, B) MAC_IPA(m_nsf_ret_vd, N0, N2, N7, B)
+        MAC_IPA(m_nsf_pal_vl, N0, N0, E, N7) MAC_IPA(m_nsf_pal_vd, N0, N2, N9, D)
+        MAC_IPA(m_nsf_vel_vl, N0, N0, N7, N8) MAC_IPA(m_nsf_vel_vd, N0, N0, N2, N6)
+        MAC_IPA(m_nsf_uvu_vl, N0, N3, C, N7) MAC_IPA(m_nsf_uvu_vd, N0, N2, N8, N1)
+        MAC_IPA(m_nsf_epi_vl, N0, N1, N2, N7) MAC_IPA(m_nsf_epi_vd, N0, N2, N9, N5)
+        MAC_IPA(m_nsf_glo_vl, N0, N0, N6, N8) MAC_IPA(m_nsf_glo_vd, N0, N2, N6, N6)
+
+        // Layer 10: Non-sibilant Affricate
+        MAC_IPA(m_nsa_den_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_den_vd, N0, N0, N0, N0)
+        MAC_IPA(m_nsa_alv_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_alv_vd, N0, N0, N0, N0)
+        MAC_IPA(m_nsa_palv_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_palv_vd, N0, N0, N0, N0)
+        MAC_IPA(m_nsa_ret_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_ret_vd, N0, N0, N0, N0)
+        MAC_IPA(m_nsa_pal_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_pal_vd, N0, N0, N0, N0)
+        MAC_IPA(m_nsa_vel_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_vel_vd, N0, N0, N0, N0)
+        MAC_IPA(m_nsa_uvu_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_uvu_vd, N0, N0, N0, N0)
+        MAC_IPA(m_nsa_epi_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_epi_vd, N0, N0, N0, N0)
+        MAC_IPA(m_nsa_glo_vl, N0, N0, N0, N0) 
+
+        // Layer 11: Sibilant fricative
+        MAC_IPA(m_sf_den_vl, N0, N0, N7, N3) MAC_IPA(m_sf_den_vd, N0, N0, N7, A)
+        MAC_IPA(m_sf_alv_vl, N0, N0, N7, N3) MAC_IPA(m_sf_alv_vd, N0, N0, N7, A)
+        MAC_IPA(m_sf_palv_vl, N0, N2, N8, N3) MAC_IPA(m_sf_palv_vd, N0, N2, N9, N2)
+        MAC_IPA(m_sf_ret_vl, N0, N2, N8, N2) MAC_IPA(m_sf_ret_vd, N0, N2, N9, N0)
+        MAC_IPA(m_sf_pal_vl, N0, N2, N5, N5) MAC_IPA(m_sf_pal_vd, N0, N2, N9, N1)
+
+        // Layer 12: Sibilant Affricate
+        MAC_IPA(m_sa_den_vl, N0, N0, N0, N0) MAC_IPA(m_sa_den_vd, N0, N0, N0, N0)
+        MAC_IPA(m_sa_alv_vl, N0, N0, N0, N0) MAC_IPA(m_sa_alv_vd, N0, N0, N0, N0)
+        MAC_IPA(m_sa_palv_vl, N0, N0, N0, N0) MAC_IPA(m_sa_palv_vd, N0, N0, N0, N0)
+        MAC_IPA(m_sa_ret_vl, N0, N0, N0, N0) MAC_IPA(m_sa_ret_vd, N0, N0, N0, N0)
+        MAC_IPA(m_sa_pal_vl, N0, N0, N0, N0) MAC_IPA(m_sa_pal_vd, N0, N0, N0, N0)
+        MAC_IPA(m_sa_vel_vl, N0, N0, N0, N0) MAC_IPA(m_sa_vel_vd, N0, N0, N0, N0)
+        MAC_IPA(m_sa_uvu_vl, N0, N0, N0, N0) MAC_IPA(m_sa_uvu_vd, N0, N0, N0, N0)
+        MAC_IPA(m_sa_epi_vl, N0, N0, N0, N0) MAC_IPA(m_sa_epi_vd, N0, N0, N0, N0)
+        MAC_IPA(m_sa_glo_vl, N0, N0, N0, N0)
+
+        // Layer 13: Lateral Fricative
+        MAC_IPA(m_lf_den_vl, N0, N2, N6, C) MAC_IPA(m_lf_den_vd, N0, N2, N6, E)
+        MAC_IPA(m_lf_alv_vl, N0, N2, N6, C) MAC_IPA(m_lf_alv_vd, N0, N2, N6, E)
+        MAC_IPA(m_lf_ret_vl, N0, N2, N6, D) MAC_IPA(m_lf_ret_vd, N0, N2, N6, D)
+        MAC_IPA(m_lf_pal_vl, N0, N2, N8, E) MAC_IPA(m_lf_pal_vd, N0, N2, N8, E)
+        MAC_IPA(m_lf_vel_vl, N0, N2, N9, F) MAC_IPA(m_lf_vel_vd, N0, N2, N9, F)
+
+        // Layer 14: Lateral Affricate
+        MAC_IPA(m_la_alv_vl, N0, N0, N0, N0) MAC_IPA(m_la_alv_vd, N0, N0, N0, N0)
+        MAC_IPA(m_la_ret_vl, N0, N0, N0, N0) MAC_IPA(m_la_ret_vd, N0, N0, N0, N0)
+        MAC_IPA(m_la_pal_vl, N0, N0, N0, N0) MAC_IPA(m_la_pal_vd, N0, N0, N0, N0)
+        MAC_IPA(m_la_vel_vl, N0, N0, N0, N0) MAC_IPA(m_la_vel_vd, N0, N0, N0, N0)
+
+        // Layer 15: Approximant
+        MAC_IPA(m_ap_den_vd, N0, N0, F, N0)
+        MAC_IPA(m_ap_alv_vd, N0, N2, N7, N9)
+        MAC_IPA(m_ap_palv_vd, N0, N2, N7, N9)
+        MAC_IPA(m_ap_ret_vd, N0, N2, N7, B)
+        MAC_IPA(m_ap_pal_vd, N0, N0, N6, A)
+        MAC_IPA(m_ap_vel_vd, N0, N2, N7, N0)
+
+        // Layer 16: Lateral Approximant
+        MAC_IPA(m_lap_den_vl, N0, N0, N6, C) MAC_IPA(m_lap_den_vd, N0, N0, N6, C)
+        MAC_IPA(m_lap_alv_vd, N0, N0, N6, C)
+        MAC_IPA(m_lap_ret_vl, N0, N2, N6, D) MAC_IPA(m_lap_ret_vd, N0, N2, N6, D)
+        MAC_IPA(m_lap_pal_vl, N0, N2, N8, E) MAC_IPA(m_lap_pal_vd, N0, N2, N8, E)
+        MAC_IPA(m_lap_vel_vl, N0, N2, N9, F) MAC_IPA(m_lap_vel_vd, N0, N2, N9, F)
+        MAC_IPA(m_lap_uvu_vd, N0, N0, N0, N0)
+
+        // Layer 17: Tap/Flap
+        MAC_IPA(m_tap_alv_vl, N0, N2, N7, E) MAC_IPA(m_tap_alv_vd, N0, N2, N7, E)
+        MAC_IPA(m_tap_ret_vl, N0, N2, N7, D) MAC_IPA(m_tap_ret_vd, N0, N2, N7, D)
+        MAC_IPA(m_tap_uvu_vd, N0, N0, N0, N0)
+        MAC_IPA(m_tap_epi_vd, N0, N0, N0, N0)
+
+        // Layer 18: Lateral Tap/Flap
+        MAC_IPA(m_ltap_alv_vl, N0, N2, N7, A) MAC_IPA(m_ltap_alv_vd, N0, N2, N7, A)
+        MAC_IPA(m_ltap_ret_vl, N0, N0, N0, N0) MAC_IPA(m_ltap_ret_vd, N0, N0, N0, N0)
+        MAC_IPA(m_ltap_pal_vd, N0, N0, N0, N0)
+        MAC_IPA(m_ltap_vel_vd, N0, N0, N0, N0)
+
+        // Layer 19: Trill
+        MAC_IPA(m_tr_alv_vl, N0, N0, N7, N2) MAC_IPA(m_tr_alv_vd, N0, N0, N7, N2)
+        MAC_IPA(m_tr_palv_vd, N0, N0, N0, N0) MAC_IPA(m_tr_ret_vl, N0, N0, N0, N0) MAC_IPA(m_tr_ret_vd, N0, N0, N0, N0)
+        MAC_IPA(m_tr_uvu_vl, N0, N2, N8, N0) MAC_IPA(m_tr_uvu_vd, N0, N2, N8, N0)
+        MAC_IPA(m_tr_epi_vl, N0, N2, N9, C) MAC_IPA(m_tr_epi_vd, N0, N2, A, N2)
+
+        // Layer 20: Implosive
+        MAC_IPA(m_im_den_vl, N0, N1, C, N0)
+        MAC_IPA(m_im_alv_vl, N0, N1, C, N3) MAC_IPA(m_im_alv_vd, N0, N2, N5, N7)
+        MAC_IPA(m_im_palv_vl, N2, N0, N3, C) MAC_IPA(m_im_palv_vd, N1, D, N9, N1)
+        MAC_IPA(m_im_ret_vl, N0, N1, C, N2) MAC_IPA(m_im_ret_vd, N0, N2, N8, N4)
+        MAC_IPA(m_im_pal_vl, N0, N1, C, N1) MAC_IPA(m_im_pal_vd, N0, N2, N6, N0)
+        MAC_IPA(m_im_uvu_vd, N0, N2, N9, B)
+
+        // Layer 21: Lateral Implosive
+        MAC_IPA(m_lim_den_vl, N0, N1, C, N1)
     };
 
-keymap {
+    behaviors {
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN &msc SCRL_UP>;
+            tap-ms = <20>;
+        };
+
+        lt_ipa: lt_ipa {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            flavor = "hold-preferred";
+            bindings = <&ipa_sw>, <&kp>;
+        };
+
+        lt_NUM: lt_NUM {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+    };
+
+    keymap {
         compatible = "zmk,keymap";
 
         default_layer {
