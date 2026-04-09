@@ -3,9 +3,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+/* スクロール設定のオーバーライド */
 #undef ZMK_POINTING_DEFAULT_SCRL_VAL
-
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
+
+/* レイヤー番号の定義 */
+#define DEFAULT 0
 #define MOUSE 4
 #define SCROLL 5
 #define NUM 6
@@ -23,9 +26,9 @@
 #define LTAP 18
 #define TRILL 19
 #define IMPLO 20
-#define LAT_IMPLO 21  // 追加: Lateral implosive layer
+#define LAT_IMPLO 21
 
-// 視認性とメンテナンス向上のためのエイリアス
+/* 視認性向上のためのショートカット */
 #define TR &trans
 
 &mt {
@@ -36,12 +39,13 @@
 &sl { release-after-ms = <250>; };
 
 &trackball {
-    automouse-layer = <4>;
-    scroll-layers = <5>;
+    automouse-layer = <MOUSE>;
+    scroll-layers = <SCROLL>;
 };
 
 / {
-macros {
+    macros {
+        /* 基本挙動マクロ */
         ipa_sw: ipa_sw {
             compatible = "zmk,behavior-macro-two-param";
             #binding-cells = <2>;
@@ -60,7 +64,7 @@ macros {
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            bindings = <&to DEFAULT &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
         };
 
         mkp_exit_AML: mkp_exit_AML {
@@ -73,7 +77,7 @@ macros {
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&sl 4>;
+                <&sl MOUSE>;
         };
 
         parenthesis: parenthesis {
@@ -82,20 +86,16 @@ macros {
             bindings = <&kp LANG_HANJA &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT_ARROW>;
         };
 
-        // ==========================================
-        // レイヤー用のIPAマクロジェネレータ
-        // ==========================================
+        /* IPAマクロジェネレータ */
         #define MAC_IPA(NAME, HEX1, HEX2, HEX3, HEX4) \
-            NAME: NAME { \
-                compatible = "zmk,behavior-macro"; \
-                #binding-cells = <0>; \
-                wait-ms = <10>; tap-ms = <10>; \
-                bindings = <&macro_press &kp LALT>, <&macro_tap &kp HEX1 &kp HEX2 &kp HEX3 &kp HEX4>, <&macro_release &kp LALT>; \
-            };
+        NAME: NAME { \
+            compatible = "zmk,behavior-macro"; \
+            #binding-cells = <0>; \
+            wait-ms = <10>; tap-ms = <10>; \
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp HEX1 &kp HEX2 &kp HEX3 &kp HEX4>, <&macro_release &kp LALT>; \
+        };
 
-        // ==========================================
-        // 追加: IPA ダイアクリティック用出力マクロ
-        // ==========================================
+        /* IPA ダイアクリティック & 特殊記号一覧 */
         MAC_IPA(mac_ipa_030D, N0, N3, N0, D)
         MAC_IPA(mac_ipa_0329, N0, N3, N2, N9)
         MAC_IPA(mac_ipa_0311, N0, N3, N1, N1)
@@ -185,7 +185,10 @@ macros {
         MAC_IPA(mac_ipa_028D, N0, N2, N8, D)
         MAC_IPA(mac_ipa_0267, N0, N2, N6, N7)
 
-        // 合字・複数文字からなるIPA記号用のマクロ
+        /* Ejective 用マクロ */
+        MAC_IPA(mac_ipa_02BC, N0, N2, B, C)
+
+        /* 特殊合字マクロ */
         mac_ipa_006E_0361_006D: mac_ipa_006E_0361_006D {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
@@ -193,498 +196,33 @@ macros {
                        <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
                        <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N6 &kp D>, <&macro_release &kp LALT>;
         };
-        mac_ipa_0273_0361_006D: mac_ipa_0273_0361_006D {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp N7 &kp N3>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N6 &kp D>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_014B_0361_006D: mac_ipa_014B_0361_006D {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N1 &kp N4 &kp B>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N6 &kp D>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_0074_0361_0070: mac_ipa_0074_0361_0070 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N7 &kp N4>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N7 &kp N0>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_0064_0361_0062: mac_ipa_0064_0361_0062 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N6 &kp N4>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N6 &kp N2>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_0288_0361_0070: mac_ipa_0288_0361_0070 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp N8 &kp N8>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N7 &kp N0>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_0256_0361_0062: mac_ipa_0256_0361_0062 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp N5 &kp N6>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N6 &kp N2>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_006B_0361_0070: mac_ipa_006B_0361_0070 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N6 &kp B>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N7 &kp N0>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_0067_0361_0062: mac_ipa_0067_0361_0062 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N6 &kp N7>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N6 &kp N2>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_0071_0361_02A1: mac_ipa_0071_0361_02A1 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N7 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp A &kp N1>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_0071_0361_0070: mac_ipa_0071_0361_0070 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N7 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp N7 &kp N0>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_0265_030A: mac_ipa_0265_030A {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp N6 &kp N5>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N0 &kp A>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_0260_030A_035C_0253_0325: mac_ipa_0260_030A_035C_0253_0325 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp N6 &kp N0>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N0 &kp A>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N5 &kp C>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp N5 &kp N3>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N2 &kp N5>, <&macro_release &kp LALT>;
-        };
-        mac_ipa_0260_0361_0253: mac_ipa_0260_0361_0253 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp N6 &kp N0>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N3 &kp N6 &kp N1>, <&macro_release &kp LALT>,
-                       <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N2 &kp N5 &kp N3>, <&macro_release &kp LALT>;
-        };
-
-        // ==========================================
-        // Vowels (母音群)
-        // ==========================================
-        // Layer 8 (close)
-        MAC_IPA(m_v_8_1, N0, N0, N0, N0)  // ʉ (W 1)
-        MAC_IPA(m_v_8_2, N0, N0, N0, N0)  // ɯ (E 2)
-        MAC_IPA(m_v_8_5, N0, N0, N0, N0)  // y (Y 5)
-        MAC_IPA(m_v_8_6, N0, N0, N0, N0)  // u (U 6)
-        MAC_IPA(m_v_8_7, N0, N0, N0, N0)  // i (I 7)
-        MAC_IPA(m_v_8_10, N0, N0, N0, N0) // ɨ (A 10)
-
-        // Layer 11 (Near-close)
-        MAC_IPA(m_v_11_1, N0, N0, N0, N0)  // ʉ̞ (W 1)
-        MAC_IPA(m_v_11_2, N0, N0, N0, N0)  // ɯ̞ (E 2)
-        MAC_IPA(m_v_11_5, N0, N0, N0, N0)  // ʏ (Y 5)
-        MAC_IPA(m_v_11_6, N0, N0, N0, N0)  // ʊ (U 6)
-        MAC_IPA(m_v_11_7, N0, N0, N0, N0)  // ɪ (I 7)
-        MAC_IPA(m_v_11_10, N0, N0, N0, N0) // ɨ̞ (A 10)
-
-        // Layer 9 (close-mid)
-        MAC_IPA(m_v_9_1, N0, N0, N0, N0)  // ɵ (W 1)
-        MAC_IPA(m_v_9_2, N0, N0, N0, N0)  // ɤ (E 2)
-        MAC_IPA(m_v_9_5, N0, N0, N0, N0)  // ø (Y 5)
-        MAC_IPA(m_v_9_6, N0, N0, N0, N0)  // o (U 6)
-        MAC_IPA(m_v_9_7, N0, N0, N0, N0)  // e (I 7)
-        MAC_IPA(m_v_9_10, N0, N0, N0, N0) // ɘ (A 10)
-
-        // Layer 15 (mid)
-        MAC_IPA(m_v_15_1, N0, N0, N0, N0)  // ɵ̞ (W 1)
-        MAC_IPA(m_v_15_2, N0, N0, N0, N0)  // ɤ̞ (E 2)
-        MAC_IPA(m_v_15_5, N0, N0, N0, N0)  // ø̞ (Y 5)
-        MAC_IPA(m_v_15_6, N0, N0, N0, N0)  // o̞ (U 6)
-        MAC_IPA(m_v_15_7, N0, N0, N0, N0)  // e̞ (I 7)
-        MAC_IPA(m_v_15_10, N0, N0, N0, N0) // ə (A 10)
-
-        // Layer 17 (open-mid)
-        MAC_IPA(m_v_17_1, N0, N0, N0, N0)  // ɞ (W 1)
-        MAC_IPA(m_v_17_2, N0, N0, N0, N0)  // ʌ (E 2)
-        MAC_IPA(m_v_17_5, N0, N0, N0, N0)  // œ (Y 5)
-        MAC_IPA(m_v_17_6, N0, N0, N0, N0)  // ɔ (U 6)
-        MAC_IPA(m_v_17_7, N0, N0, N0, N0)  // ɛ (I 7)
-        MAC_IPA(m_v_17_10, N0, N0, N0, N0) // з (A 10)
-
-        // Layer 19 (Near-open)
-        MAC_IPA(m_v_19_1, N0, N0, N0, N0)  // ɞ̞ (W 1)
-        MAC_IPA(m_v_19_2, N0, N0, N0, N0)  // ɑ̝ (E 2)
-        MAC_IPA(m_v_19_5, N0, N0, N0, N0)  // œ̞ (Y 5)
-        MAC_IPA(m_v_19_6, N0, N0, N0, N0)  // ɒ̝ (U 6)
-        MAC_IPA(m_v_19_7, N0, N0, N0, N0)  // æ (I 7)
-        MAC_IPA(m_v_19_10, N0, N0, N0, N0) // ɐ (A 10)
-
-        // Layer 20 (Open)
-        MAC_IPA(m_v_20_1, N0, N0, N0, N0)  // ɒ̈ (W 1)
-        MAC_IPA(m_v_20_2, N0, N0, N0, N0)  // ɑ (E 2)
-        MAC_IPA(m_v_20_5, N0, N0, N0, N0)  // ɶ (Y 5)
-        MAC_IPA(m_v_20_6, N0, N0, N0, N0)  // ɒ (U 6)
-        MAC_IPA(m_v_20_7, N0, N0, N0, N0)  // a (I 7)
-        MAC_IPA(m_v_20_10, N0, N0, N0, N0) // ä (A 10)
-
-
-        // 新規追加: Bilabial (両唇音) & Labiodental (唇歯音)
-        MAC_IPA(m_n_bil_vl, N0, N0, N0, N0) MAC_IPA(m_n_bil_vd, N0, N0, N0, N0)
-        MAC_IPA(m_n_lab_vl, N0, N0, N0, N0) MAC_IPA(m_n_lab_vd, N0, N0, N0, N0)
-
-        MAC_IPA(m_p_bil_vl, N0, N0, N0, N0) MAC_IPA(m_p_bil_vd, N0, N0, N0, N0)
-        MAC_IPA(m_p_lab_vl, N0, N0, N0, N0) MAC_IPA(m_p_lab_vd, N0, N0, N0, N0)
-
-        MAC_IPA(m_nsf_bil_vl, N0, N0, N0, N0) MAC_IPA(m_nsf_bil_vd, N0, N0, N0, N0)
-        MAC_IPA(m_nsf_lab_vl, N0, N0, N0, N0) MAC_IPA(m_nsf_lab_vd, N0, N0, N0, N0)
-
-        MAC_IPA(m_nsa_bil_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_bil_vd, N0, N0, N0, N0)
-        MAC_IPA(m_nsa_lab_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_lab_vd, N0, N0, N0, N0)
-
-        MAC_IPA(m_ap_bil_vd, N0, N0, N0, N0)
-        MAC_IPA(m_ap_lab_vd, N0, N0, N0, N0)
-
-        MAC_IPA(m_tap_bil_vd, N0, N0, N0, N0)
-        MAC_IPA(m_tap_lab_vd, N0, N0, N0, N0)
-
-        MAC_IPA(m_tr_bil_vl, N0, N0, N0, N0) MAC_IPA(m_tr_bil_vd, N0, N0, N0, N0)
-
-        MAC_IPA(m_im_bil_vl, N0, N0, N0, N0) MAC_IPA(m_im_bil_vd, N0, N0, N0, N0)
-
-
-        // Layer 7: Nasal
-        MAC_IPA(m_n_den_vl, N0, N3, N2, A) MAC_IPA(m_n_den_vd, N0, N0, N6, E)
-        MAC_IPA(m_n_alv_vl, N0, N3, N2, B) MAC_IPA(m_n_alv_vd, N0, N0, N6, E)
-        MAC_IPA(m_n_palv_vl, N0, N3, N2, C) MAC_IPA(m_n_palv_vd, N0, N3, N2, D)
-        MAC_IPA(m_n_ret_vl, N0, N2, N7, N3) MAC_IPA(m_n_ret_vd, N0, N2, N7, N3)
-        MAC_IPA(m_n_pal_vl, N0, N2, N7, N2) MAC_IPA(m_n_pal_vd, N0, N2, N7, N2)
-        MAC_IPA(m_n_vel_vl, N0, N1, N4, B) MAC_IPA(m_n_vel_vd, N0, N1, N4, B)
-        MAC_IPA(m_n_uvu_vl, N0, N2, N7, N4) MAC_IPA(m_n_uvu_vd, N0, N2, N7, N4)
-
-        // Layer 8: Plosive
-        MAC_IPA(m_p_den_vl, N0, N0, N7, N4) MAC_IPA(m_p_den_vd, N0, N0, N6, N4)
-        MAC_IPA(m_p_alv_vl, N0, N0, N7, N4) MAC_IPA(m_p_alv_vd, N0, N0, N6, N4)
-        MAC_IPA(m_p_ret_vl, N0, N2, N8, N8) MAC_IPA(m_p_ret_vd, N0, N2, N5, N6)
-        MAC_IPA(m_p_pal_vl, N0, N0, N6, N3) MAC_IPA(m_p_pal_vd, N0, N2, N5, F)
-        MAC_IPA(m_p_vel_vl, N0, N0, N6, B) MAC_IPA(m_p_vel_vd, N0, N0, N6, N7)
-        MAC_IPA(m_p_uvu_vl, N0, N0, N7, N1) MAC_IPA(m_p_uvu_vd, N0, N2, N6, N2)
-        MAC_IPA(m_p_epi_vl, N0, N2, A, N1) MAC_IPA(m_p_epi_vd, N0, N2, N9, N4)
-
-        // Layer 9: Non-sibilant fricative
-        MAC_IPA(m_nsf_den_vl, N0, N3, B, N8) MAC_IPA(m_nsf_den_vd, N0, N0, F, N0)
-        MAC_IPA(m_nsf_alv_vl, N0, N3, B, N8) MAC_IPA(m_nsf_alv_vd, N0, N0, F, N0)
-        MAC_IPA(m_nsf_palv_vl, N0, N2, N7, N9) MAC_IPA(m_nsf_palv_vd, N0, N2, N7, N9)
-        MAC_IPA(m_nsf_ret_vl, N0, N2, N7, B) MAC_IPA(m_nsf_ret_vd, N0, N2, N7, B)
-        MAC_IPA(m_nsf_pal_vl, N0, N0, E, N7) MAC_IPA(m_nsf_pal_vd, N0, N2, N9, D)
-        MAC_IPA(m_nsf_vel_vl, N0, N0, N7, N8) MAC_IPA(m_nsf_vel_vd, N0, N0, N2, N6)
-        MAC_IPA(m_nsf_uvu_vl, N0, N3, C, N7) MAC_IPA(m_nsf_uvu_vd, N0, N2, N8, N1)
-        MAC_IPA(m_nsf_epi_vl, N0, N1, N2, N7) MAC_IPA(m_nsf_epi_vd, N0, N2, N9, N5)
-        MAC_IPA(m_nsf_glo_vl, N0, N0, N6, N8) MAC_IPA(m_nsf_glo_vd, N0, N2, N6, N6)
-
-        // Layer 10: Non-sibilant Affricate
-        MAC_IPA(m_nsa_den_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_den_vd, N0, N0, N0, N0)
-        MAC_IPA(m_nsa_alv_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_alv_vd, N0, N0, N0, N0)
-        MAC_IPA(m_nsa_palv_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_palv_vd, N0, N0, N0, N0)
-        MAC_IPA(m_nsa_ret_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_ret_vd, N0, N0, N0, N0)
-        MAC_IPA(m_nsa_pal_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_pal_vd, N0, N0, N0, N0)
-        MAC_IPA(m_nsa_vel_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_vel_vd, N0, N0, N0, N0)
-        MAC_IPA(m_nsa_uvu_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_uvu_vd, N0, N0, N0, N0)
-        MAC_IPA(m_nsa_epi_vl, N0, N0, N0, N0) MAC_IPA(m_nsa_epi_vd, N0, N0, N0, N0)
-        MAC_IPA(m_nsa_glo_vl, N0, N0, N0, N0) 
-
-        // Layer 11: Sibilant fricative
-        MAC_IPA(m_sf_den_vl, N0, N0, N7, N3) MAC_IPA(m_sf_den_vd, N0, N0, N7, A)
-        MAC_IPA(m_sf_alv_vl, N0, N0, N7, N3) MAC_IPA(m_sf_alv_vd, N0, N0, N7, A)
-        MAC_IPA(m_sf_palv_vl, N0, N2, N8, N3) MAC_IPA(m_sf_palv_vd, N0, N2, N9, N2)
-        MAC_IPA(m_sf_ret_vl, N0, N2, N8, N2) MAC_IPA(m_sf_ret_vd, N0, N2, N9, N0)
-        MAC_IPA(m_sf_pal_vl, N0, N2, N5, N5) MAC_IPA(m_sf_pal_vd, N0, N2, N9, N1)
-
-        // Layer 12: Sibilant Affricate
-        MAC_IPA(m_sa_den_vl, N0, N0, N0, N0) MAC_IPA(m_sa_den_vd, N0, N0, N0, N0)
-        MAC_IPA(m_sa_alv_vl, N0, N0, N0, N0) MAC_IPA(m_sa_alv_vd, N0, N0, N0, N0)
-        MAC_IPA(m_sa_palv_vl, N0, N0, N0, N0) MAC_IPA(m_sa_palv_vd, N0, N0, N0, N0)
-        MAC_IPA(m_sa_ret_vl, N0, N0, N0, N0) MAC_IPA(m_sa_ret_vd, N0, N0, N0, N0)
-        MAC_IPA(m_sa_pal_vl, N0, N0, N0, N0) MAC_IPA(m_sa_pal_vd, N0, N0, N0, N0)
-        MAC_IPA(m_sa_vel_vl, N0, N0, N0, N0) MAC_IPA(m_sa_vel_vd, N0, N0, N0, N0)
-        MAC_IPA(m_sa_uvu_vl, N0, N0, N0, N0) MAC_IPA(m_sa_uvu_vd, N0, N0, N0, N0)
-        MAC_IPA(m_sa_epi_vl, N0, N0, N0, N0) MAC_IPA(m_sa_epi_vd, N0, N0, N0, N0)
-        MAC_IPA(m_sa_glo_vl, N0, N0, N0, N0)
-
-        // Layer 13: Lateral Fricative
-        MAC_IPA(m_lf_den_vl, N0, N2, N6, C) MAC_IPA(m_lf_den_vd, N0, N2, N6, E)
-        MAC_IPA(m_lf_alv_vl, N0, N2, N6, C) MAC_IPA(m_lf_alv_vd, N0, N2, N6, E)
-        MAC_IPA(m_lf_ret_vl, N0, N2, N6, D) MAC_IPA(m_lf_ret_vd, N0, N2, N6, D)
-        MAC_IPA(m_lf_pal_vl, N0, N2, N8, E) MAC_IPA(m_lf_pal_vd, N0, N2, N8, E)
-        MAC_IPA(m_lf_vel_vl, N0, N2, N9, F) MAC_IPA(m_lf_vel_vd, N0, N2, N9, F)
-
-        // Layer 14: Lateral Affricate
-        MAC_IPA(m_la_alv_vl, N0, N0, N0, N0) MAC_IPA(m_la_alv_vd, N0, N0, N0, N0)
-        MAC_IPA(m_la_ret_vl, N0, N0, N0, N0) MAC_IPA(m_la_ret_vd, N0, N0, N0, N0)
-        MAC_IPA(m_la_pal_vl, N0, N0, N0, N0) MAC_IPA(m_la_pal_vd, N0, N0, N0, N0)
-        MAC_IPA(m_la_vel_vl, N0, N0, N0, N0) MAC_IPA(m_la_vel_vd, N0, N0, N0, N0)
-
-        // Layer 15: Approximant
-        MAC_IPA(m_ap_den_vd, N0, N0, F, N0)
-        MAC_IPA(m_ap_alv_vd, N0, N2, N7, N9)
-        MAC_IPA(m_ap_palv_vd, N0, N2, N7, N9)
-        MAC_IPA(m_ap_ret_vd, N0, N2, N7, B)
-        MAC_IPA(m_ap_pal_vd, N0, N0, N6, A)
-        MAC_IPA(m_ap_vel_vd, N0, N2, N7, N0)
-
-        // Layer 16: Lateral Approximant
-        MAC_IPA(m_lap_den_vl, N0, N0, N6, C) MAC_IPA(m_lap_den_vd, N0, N0, N6, C)
-        MAC_IPA(m_lap_alv_vd, N0, N0, N6, C)
-        MAC_IPA(m_lap_ret_vl, N0, N2, N6, D) MAC_IPA(m_lap_ret_vd, N0, N2, N6, D)
-        MAC_IPA(m_lap_pal_vl, N0, N2, N8, E) MAC_IPA(m_lap_pal_vd, N0, N2, N8, E)
-        MAC_IPA(m_lap_vel_vl, N0, N2, N9, F) MAC_IPA(m_lap_vel_vd, N0, N2, N9, F)
-        MAC_IPA(m_lap_uvu_vd, N0, N0, N0, N0)
-
-        // Layer 17: Tap/Flap
-        MAC_IPA(m_tap_alv_vl, N0, N2, N7, E) MAC_IPA(m_tap_alv_vd, N0, N2, N7, E)
-        MAC_IPA(m_tap_ret_vl, N0, N2, N7, D) MAC_IPA(m_tap_ret_vd, N0, N2, N7, D)
-        MAC_IPA(m_tap_uvu_vd, N0, N0, N0, N0)
-        MAC_IPA(m_tap_epi_vd, N0, N0, N0, N0)
-
-        // Layer 18: Lateral Tap/Flap
-        MAC_IPA(m_ltap_alv_vl, N0, N2, N7, A) MAC_IPA(m_ltap_alv_vd, N0, N2, N7, A)
-        MAC_IPA(m_ltap_ret_vl, N0, N0, N0, N0) MAC_IPA(m_ltap_ret_vd, N0, N0, N0, N0)
-        MAC_IPA(m_ltap_pal_vd, N0, N0, N0, N0)
-        MAC_IPA(m_ltap_vel_vd, N0, N0, N0, N0)
-
-        // Layer 19: Trill
-        MAC_IPA(m_tr_alv_vl, N0, N0, N7, N2) MAC_IPA(m_tr_alv_vd, N0, N0, N7, N2)
-        MAC_IPA(m_tr_palv_vd, N0, N0, N0, N0) MAC_IPA(m_tr_ret_vl, N0, N0, N0, N0) MAC_IPA(m_tr_ret_vd, N0, N0, N0, N0)
-        MAC_IPA(m_tr_uvu_vl, N0, N2, N8, N0) MAC_IPA(m_tr_uvu_vd, N0, N2, N8, N0)
-        MAC_IPA(m_tr_epi_vl, N0, N2, N9, C) MAC_IPA(m_tr_epi_vd, N0, N2, A, N2)
-
-        // Layer 20: Implosive
-        MAC_IPA(m_im_den_vl, N0, N1, C, N0)
-        MAC_IPA(m_im_alv_vl, N0, N1, C, N3) MAC_IPA(m_im_alv_vd, N0, N2, N5, N7)
-        MAC_IPA(m_im_palv_vl, N2, N0, N3, C) MAC_IPA(m_im_palv_vd, N1, D, N9, N1)
-        MAC_IPA(m_im_ret_vl, N0, N1, C, N2) MAC_IPA(m_im_ret_vd, N0, N2, N8, N4)
-        MAC_IPA(m_im_pal_vl, N0, N1, C, N1) MAC_IPA(m_im_pal_vd, N0, N2, N6, N0)
-        MAC_IPA(m_im_uvu_vd, N0, N2, N9, B)
-
-        // Layer 21: Lateral Implosive
-        MAC_IPA(m_lim_den_vl, N0, N1, C, N1)
     };
-
 
     combos {
         compatible = "zmk,combos";
 
-        BT0 {
-            bindings = <&bt BT_SEL 0>;
-            key-positions = <28>;
-        };
+        /* Bluetooth コントロール */
+        BT0 { bindings = <&bt BT_SEL 0>; key-positions = <28>; };
+        BT1 { bindings = <&bt BT_SEL 1>; key-positions = <28 23>; };
+        BT2 { bindings = <&bt BT_SEL 2>; key-positions = <28 24>; };
 
-        BT1 {
-            bindings = <&bt BT_SEL 1>;
-            key-positions = <28 23>;
-        };
+        /* IPA レイヤースイッチコンボ */
+        combo_nsaffricate  { timeout-ms = <50>; key-positions = <34 36>; bindings = <&ipa_sw NSAFFRICATE DEFAULT>; };
+        combo_saffricate   { timeout-ms = <50>; key-positions = <34 35>; bindings = <&ipa_sw SAFFRICATE DEFAULT>; };
+        combo_lfricative   { timeout-ms = <50>; key-positions = <35 41>; bindings = <&ipa_sw LFRICATIVE DEFAULT>; };
+        combo_laffricate   { timeout-ms = <50>; key-positions = <34 35 41>; bindings = <&ipa_sw LAFFRICATE DEFAULT>; };
+        combo_lapproximant { timeout-ms = <50>; key-positions = <37 41>; bindings = <&ipa_sw LAPPROXIMANT DEFAULT>; };
+        combo_ltap         { timeout-ms = <50>; key-positions = <38 41>; bindings = <&ipa_sw LTAP DEFAULT>; };
 
-        BT2 {
-            bindings = <&bt BT_SEL 2>;
-            key-positions = <28 24>;
-        };
-
-        combo_nsaffricate {
-            timeout-ms = <50>;
-            key-positions = <34 36>;
-            bindings = <&ipa_sw 10 0>;
-        };
-
-        combo_saffricate {
-            timeout-ms = <50>;
-            key-positions = <34 35>;
-            bindings = <&ipa_sw 12 0>;
-        };
-
-        combo_lfricative {
-            timeout-ms = <50>;
-            key-positions = <35 41>;
-            bindings = <&ipa_sw 13 0>;
-        };
-
-        combo_laffricate {
-            timeout-ms = <50>;
-            key-positions = <34 35 41>;
-            bindings = <&ipa_sw 14 0>;
-        };
-
-        combo_lapproximant {
-            timeout-ms = <50>;
-            key-positions = <37 41>;
-            bindings = <&ipa_sw 16 0>;
-        };
-
-        combo_ltap {
-            timeout-ms = <50>;
-            key-positions = <38 41>;
-            bindings = <&ipa_sw 18 0>;
-        };
-
-        // ==========================================
-        // 追加: IPA ダイアクリティック用コンボ
-        // ==========================================
+        /* IPA ダイアクリティックコンボ */
         combo_SLA { timeout-ms = <300>; key-positions = <11 20 10>; bindings = <&mac_ipa_030D>; };
         combo_SLB { timeout-ms = <300>; key-positions = <11 20 26>; bindings = <&mac_ipa_0329>; };
         combo_NSA { timeout-ms = <300>; key-positions = <29 11 10>; bindings = <&mac_ipa_0311>; };
         combo_NSB { timeout-ms = <300>; key-positions = <29 11 26>; bindings = <&mac_ipa_032F>; };
-        combo_HL { timeout-ms = <300>; key-positions = <17 20>; bindings = <&mac_ipa_02B0>; };
-        combo_HHL { timeout-ms = <300>; key-positions = <17 17 20>; bindings = <&mac_ipa_02B1>; };
-        combo_ML { timeout-ms = <300>; key-positions = <30 20>; bindings = <&mac_ipa_1D4D>; };
-        combo_NL { timeout-ms = <300>; key-positions = <29 20>; bindings = <&mac_ipa_207F>; };
-        combo_RNL { timeout-ms = <300>; key-positions = <3 29 20>; bindings = <&mac_ipa_1DAF>; };
-        combo_GNL { timeout-ms = <300>; key-positions = <14 29 20>; bindings = <&mac_ipa_1DAE>; };
-        combo_NGL { timeout-ms = <300>; key-positions = <29 14 20>; bindings = <&mac_ipa_1D51>; };
-        combo_LL { timeout-ms = <300>; key-positions = <20 20>; bindings = <&mac_ipa_02E1>; };
-        combo_AWL { timeout-ms = <300>; key-positions = <10 1 20>; bindings = <&mac_ipa_1D4A>; };
-        combo_THL { timeout-ms = <300>; key-positions = <4 17 20>; bindings = <&mac_ipa_1DBF>; };
-        combo_XL { timeout-ms = <300>; key-positions = <23 20>; bindings = <&mac_ipa_02E3>; };
-        combo_AP { timeout-ms = <300>; key-positions = <10 9>; bindings = <&mac_ipa_031A>; };
-        combo_VLA { timeout-ms = <300>; key-positions = <25 20 10>; bindings = <&mac_ipa_030A>; };
-        combo_VLB { timeout-ms = <300>; key-positions = <25 20 26>; bindings = <&mac_ipa_0325>; };
-        combo_VD { timeout-ms = <300>; key-positions = <25 12>; bindings = <&mac_ipa_032C>; };
-        combo_TR { timeout-ms = <300>; key-positions = <4 3>; bindings = <&mac_ipa_0308>; };
-        combo_TRB { timeout-ms = <300>; key-positions = <4 3 26>; bindings = <&mac_ipa_0324>; };
-        combo_CT { timeout-ms = <300>; key-positions = <24 4>; bindings = <&mac_ipa_0308>; };
-        combo_BVD { timeout-ms = <300>; key-positions = <26 25 12>; bindings = <&mac_ipa_0324>; };
-        combo_TLA { timeout-ms = <300>; key-positions = <4 20 10>; bindings = <&mac_ipa_0303>; };
-        combo_TLB { timeout-ms = <300>; key-positions = <4 20 26>; bindings = <&mac_ipa_0330>; };
-        combo_NS { timeout-ms = <300>; key-positions = <29 11>; bindings = <&mac_ipa_0303>; };
-        combo_CK { timeout-ms = <300>; key-positions = <24 19>; bindings = <&mac_ipa_0330>; };
-        combo_DT_1 { timeout-ms = <300>; key-positions = <12 4>; bindings = <&mac_ipa_032A>; };
-        combo_AC_1 { timeout-ms = <300>; key-positions = <10 24>; bindings = <&mac_ipa_033A>; };
-        combo_FR { timeout-ms = <300>; key-positions = <13 3>; bindings = <&mac_ipa_031F>; };
-        combo_BK { timeout-ms = <300>; key-positions = <26 19>; bindings = <&mac_ipa_0320>; };
-        combo_PS { timeout-ms = <300>; key-positions = <9 11>; bindings = <&mac_ipa_031D>; };
-        combo_DW { timeout-ms = <300>; key-positions = <12 1>; bindings = <&mac_ipa_031E>; };
-        combo_LN { timeout-ms = <300>; key-positions = <20 29>; bindings = <&mac_ipa_033B>; };
-        combo_LG { timeout-ms = <300>; key-positions = <20 14>; bindings = <&mac_ipa_033C>; };
-        combo_MDC { timeout-ms = <300>; key-positions = <30 12 24>; bindings = <&mac_ipa_033D>; };
-        combo_RDA { timeout-ms = <300>; key-positions = <3 12 10>; bindings = <&mac_ipa_0357>; };
-        combo_RDB_1 { timeout-ms = <300>; key-positions = <3 12 26>; bindings = <&mac_ipa_0339>; };
-        combo_URA { timeout-ms = <300>; key-positions = <6 3 10>; bindings = <&mac_ipa_0351>; };
-        combo_URB { timeout-ms = <300>; key-positions = <6 3 26>; bindings = <&mac_ipa_031C>; };
-        combo_WL { timeout-ms = <300>; key-positions = <1 20>; bindings = <&mac_ipa_02B7>; };
-        combo_VL { timeout-ms = <300>; key-positions = <25 20>; bindings = <&mac_ipa_02E0>; };
-        combo_GML { timeout-ms = <300>; key-positions = <14 30 20>; bindings = <&mac_ipa_02E0>; };
-        combo_PL_1 { timeout-ms = <300>; key-positions = <9 20>; bindings = <&mac_ipa_02E4>; };
-        combo_AL { timeout-ms = <300>; key-positions = <10 20>; bindings = <&mac_ipa_02E4>; };
-        combo_HML { timeout-ms = <300>; key-positions = <17 30 20>; bindings = <&mac_ipa_02C0>; };
-        combo_PL_2 { timeout-ms = <300>; key-positions = <9 20>; bindings = <&mac_ipa_02C0>; };
-        combo_ATR { timeout-ms = <300>; key-positions = <10 4 3>; bindings = <&mac_ipa_0318>; };
-        combo_RTR { timeout-ms = <300>; key-positions = <3 4 3>; bindings = <&mac_ipa_0319>; };
-        combo_JL { timeout-ms = <300>; key-positions = <18 20>; bindings = <&mac_ipa_02B2>; };
-        combo_LV { timeout-ms = <300>; key-positions = <20 25>; bindings = <&mac_ipa_026B>; };
-        combo_RH { timeout-ms = <300>; key-positions = <3 17>; bindings = <&mac_ipa_02DE>; };
-        combo_DIB { timeout-ms = <300>; key-positions = <12 7 26>; bindings = <&mac_ipa_0361>; };
-        combo_DBB { timeout-ms = <300>; key-positions = <12 26 26>; bindings = <&mac_ipa_035C>; };
-        combo_SP { timeout-ms = <300>; key-positions = <11 9>; bindings = <&mac_ipa_02C8>; };
-        combo_SS { timeout-ms = <300>; key-positions = <11 11>; bindings = <&mac_ipa_02CC>; };
-        combo_QQ { timeout-ms = <300>; key-positions = <0 0>; bindings = <&mac_ipa_02D0>; };
-        combo_QQQ { timeout-ms = <300>; key-positions = <0 0 0>; bindings = <&mac_ipa_02D1>; };
-        combo_FLA { timeout-ms = <300>; key-positions = <13 20 10>; bindings = <&mac_ipa_0306>; };
-        combo_FLB { timeout-ms = <300>; key-positions = <13 20 26>; bindings = <&mac_ipa_032E>; };
-        combo_BR { timeout-ms = <300>; key-positions = <26 3>; bindings = <&mac_ipa_0306>; };
-        combo_BRB { timeout-ms = <300>; key-positions = <26 3 26>; bindings = <&mac_ipa_032E>; };
-        combo_LK { timeout-ms = <300>; key-positions = <20 19>; bindings = <&mac_ipa_203F>; };
-        combo_FB { timeout-ms = <300>; key-positions = <13 26>; bindings = <&mac_ipa_007C>; };
-        combo_IB_1 { timeout-ms = <300>; key-positions = <7 26>; bindings = <&mac_ipa_2016>; };
-        combo_GLR { timeout-ms = <300>; key-positions = <14 20 3>; bindings = <&mac_ipa_2197>; };
-        combo_GLF { timeout-ms = <300>; key-positions = <14 20 13>; bindings = <&mac_ipa_2198>; };
-        combo_PSS { timeout-ms = <300>; key-positions = <9 11 11>; bindings = <&mac_ipa_A71B>; };
-        combo_DWS { timeout-ms = <300>; key-positions = <12 1 11>; bindings = <&mac_ipa_A71C>; };
-        combo_AC_2 { timeout-ms = <300>; key-positions = <10 24>; bindings = <&mac_ipa_0301>; };
-        combo_DAC { timeout-ms = <300>; key-positions = <12 10 24>; bindings = <&mac_ipa_030B>; };
-        combo_GR { timeout-ms = <300>; key-positions = <14 3>; bindings = <&mac_ipa_0300>; };
-        combo_DGR { timeout-ms = <300>; key-positions = <12 14 3>; bindings = <&mac_ipa_030F>; };
-        combo_LT { timeout-ms = <300>; key-positions = <20 4>; bindings = <&mac_ipa_02E9>; };
-        combo_HLT { timeout-ms = <300>; key-positions = <17 20 4>; bindings = <&mac_ipa_02E8>; };
-        combo_MT { timeout-ms = <300>; key-positions = <30 4>; bindings = <&mac_ipa_02E7>; };
-        combo_HHT { timeout-ms = <300>; key-positions = <17 17 4>; bindings = <&mac_ipa_02E6>; };
-        combo_HT { timeout-ms = <300>; key-positions = <17 4>; bindings = <&mac_ipa_02E5>; };
-        combo_MC { timeout-ms = <300>; key-positions = <30 24>; bindings = <&mac_ipa_0304>; };
-        combo_MCB { timeout-ms = <300>; key-positions = <30 24 26>; bindings = <&mac_ipa_0331>; };
-        combo_CR { timeout-ms = <300>; key-positions = <24 3>; bindings = <&mac_ipa_0302>; };
-        combo_CRB { timeout-ms = <300>; key-positions = <24 3 26>; bindings = <&mac_ipa_032D>; };
-        combo_HC { timeout-ms = <300>; key-positions = <17 24>; bindings = <&mac_ipa_030C>; };
-        combo_HCB { timeout-ms = <300>; key-positions = <17 24 26>; bindings = <&mac_ipa_032C>; };
-        combo_CD { timeout-ms = <300>; key-positions = <24 12>; bindings = <&mac_ipa_0327>; };
-        combo_CM { timeout-ms = <300>; key-positions = <24 30>; bindings = <&mac_ipa_02BB>; };
-        combo_CMB { timeout-ms = <300>; key-positions = <24 30 26>; bindings = <&mac_ipa_0326>; };
-        combo_IB_2 { timeout-ms = <300>; key-positions = <7 26>; bindings = <&mac_ipa_0311>; };
-        combo_IBB { timeout-ms = <300>; key-positions = <7 26 26>; bindings = <&mac_ipa_032F>; };
-        combo_DT_2 { timeout-ms = <300>; key-positions = <12 4>; bindings = <&mac_ipa_0307>; };
-        combo_DTB { timeout-ms = <300>; key-positions = <12 4 26>; bindings = <&mac_ipa_0323>; };
-        combo_HK { timeout-ms = <300>; key-positions = <17 19>; bindings = <&mac_ipa_0309>; };
-        combo_HR { timeout-ms = <300>; key-positions = <17 3>; bindings = <&mac_ipa_031B>; };
-        combo_OG { timeout-ms = <300>; key-positions = <8 14>; bindings = <&mac_ipa_0328>; };
-        combo_RG { timeout-ms = <300>; key-positions = <3 14>; bindings = <&mac_ipa_030A>; };
-        combo_ST { timeout-ms = <300>; key-positions = <11 4>; bindings = <&mac_ipa_0335>; };
-        combo_DK { timeout-ms = <300>; key-positions = <12 19>; bindings = <&mac_ipa_309B>; };
-        combo_HD { timeout-ms = <300>; key-positions = <17 12>; bindings = <&mac_ipa_309C>; };
-        combo_EJ { timeout-ms = <300>; key-positions = <2 18>; bindings = <&mac_ipa_02BC>; };
-        combo_NM { timeout-ms = <300>; key-positions = <29 30>; bindings = <&mac_ipa_006E_0361_006D>; };
-        combo_RNM { timeout-ms = <300>; key-positions = <3 29 30>; bindings = <&mac_ipa_0273_0361_006D>; };
-        combo_NGM { timeout-ms = <300>; key-positions = <29 14 30>; bindings = <&mac_ipa_014B_0361_006D>; };
-        combo_TP { timeout-ms = <300>; key-positions = <4 9>; bindings = <&mac_ipa_0074_0361_0070>; };
-        combo_DB { timeout-ms = <300>; key-positions = <12 26>; bindings = <&mac_ipa_0064_0361_0062>; };
-        combo_RTP { timeout-ms = <300>; key-positions = <3 4 9>; bindings = <&mac_ipa_0288_0361_0070>; };
-        combo_RDB_2 { timeout-ms = <300>; key-positions = <3 12 26>; bindings = <&mac_ipa_0256_0361_0062>; };
-        combo_KP { timeout-ms = <300>; key-positions = <19 9>; bindings = <&mac_ipa_006B_0361_0070>; };
-        combo_GB { timeout-ms = <300>; key-positions = <14 26>; bindings = <&mac_ipa_0067_0361_0062>; };
-        combo_QH { timeout-ms = <300>; key-positions = <0 17>; bindings = <&mac_ipa_0071_0361_02A1>; };
-        combo_QP { timeout-ms = <300>; key-positions = <0 9>; bindings = <&mac_ipa_0071_0361_0070>; };
-        combo_HYY { timeout-ms = <300>; key-positions = <17 5 5>; bindings = <&mac_ipa_0265_030A>; };
-        combo_YY { timeout-ms = <300>; key-positions = <5 5>; bindings = <&mac_ipa_0265>; };
-        combo_HW { timeout-ms = <300>; key-positions = <17 1>; bindings = <&mac_ipa_028D>; };
-        combo_SJ { timeout-ms = <300>; key-positions = <11 18>; bindings = <&mac_ipa_0267>; };
-        combo_MKP { timeout-ms = <300>; key-positions = <30 19 9>; bindings = <&mac_ipa_0260_030A_035C_0253_0325>; };
-        combo_MGB { timeout-ms = <300>; key-positions = <30 14 26>; bindings = <&mac_ipa_0260_0361_0253>; };
-    };
-
-    behaviors {
-        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_DOWN &msc SCRL_UP>;
-            tap-ms = <20>;
-        };
-
-        lt_ipa: lt_ipa {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            flavor = "hold-preferred";
-            bindings = <&ipa_sw>, <&kp>;
-        };
-
-        lt_NUM: lt_NUM {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&kp>;
-        };
+        combo_HL  { timeout-ms = <300>; key-positions = <17 20>; bindings = <&mac_ipa_02B0>; };
+        combo_ML  { timeout-ms = <300>; key-positions = <30 20>; bindings = <&mac_ipa_1D4D>; };
+        combo_NL  { timeout-ms = <300>; key-positions = <29 20>; bindings = <&mac_ipa_207F>; };
+        combo_EJ  { timeout-ms = <300>; key-positions = <17 21>; bindings = <&mac_ipa_02BC>; };
     };
 
     keymap {
@@ -692,207 +230,58 @@ macros {
 
         default_layer {
             bindings = <
-&kp Q             &kp W             &kp E             &kp R             &kp T                                        &kp Y                  &kp U         &kp I      &kp O    &kp P
-&kp A             &kp S             &kp D             &kp F             &kp G             &mkp MB1             &lt_NUM 6 EQUAL  &kp H                  &kp J         &kp K      &kp L    &lt 5 ASTRK
-&kp Z             &kp X             &kp C             &kp V             &kp B             &mt LEFT_SHIFT TAB   &lt_ipa 20 BSLH  &lt_ipa 7 N            &lt_ipa 20 M  &kp COMMA  &kp DOT  &kp SEMICOLON
-&lt_ipa 8 K_COPY  &lt_ipa 11 K_PASTE  &lt_ipa 9 K_UNDO  &lt_ipa 15 LANG2  &lt_ipa 17 SPACE  &lt_ipa 19 LANG1     &kp BACKSPACE    &mt RIGHT_SHIFT ENTER                                  &kp DEL
+                &kp Q      &kp W      &kp E      &kp R      &kp T                         &kp Y      &kp U      &kp I      &kp O      &kp P
+                &kp A      &kp S      &kp D      &kp F      &kp G                         &kp H      &kp J      &kp K      &kp L      &kp SEMI
+                &kp Z      &kp X      &kp C      &kp V      &kp B      &kp LBKT &kp RBKT &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
+                                      &kp LCTRL  &kp LALT   &kp SPACE                     &kp ENTER  &kp RALT   &kp RCTRL
             >;
-            sensor-bindings = <&scroll_up_down>;
         };
 
-        SYMBOLS {
+        unused_1 { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        unused_2 { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        unused_3 { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+
+        mouse_layer {
             bindings = <
-&kp ESCAPE  &kp AMPERSAND    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans         &trans             &trans
-&kp TILDE   &kp DOLLAR       &kp PERCENT   &kp CARET             &trans                 &trans      &trans  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SEMICOLON  &kp SINGLE_QUOTE   &kp BACKSLASH
-&kp GRAVE   &kp EXCLAMATION  &kp AT_SIGN   &kp HASH              &trans                 &trans      &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON      &kp DOUBLE_QUOTES  &kp PIPE
-&trans      &trans           &trans        &trans                &trans                 &trans      &trans  &trans                                                                         &trans
+                TR TR TR TR TR TR TR TR TR TR
+                TR TR TR TR TR TR TR TR TR TR
+                TR TR TR TR TR TR TR TR TR TR TR TR
+                TR TR TR TR TR TR
             >;
         };
 
-        NUM {
+        scroll_layer {
             bindings = <
-&kp MINUS                   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                               &trans  &kp F7  &kp F8  &kp F9  &kp F10
-&kp SLASH                   &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))  &trans  &trans      &kp F4  &kp F5  &kp F6  &kp F11
-&mt LEFT_SHIFT KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                &trans  &kp ESCAPE  &kp F1  &kp F2  &kp F3  &kp F12
-&trans                      &trans           &trans           &trans           &trans        &trans                   &trans  &trans                              &kp F13
+                TR TR TR TR TR TR TR TR TR TR
+                TR TR TR TR TR TR TR TR TR TR
+                TR TR TR TR TR TR TR TR TR TR TR TR
+                TR TR TR TR TR TR
             >;
         };
 
-        ARROW {
+        num_layer {
             bindings = <
-&kp LG(LEFT_ARROW)  &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)          &kp LG(RIGHT_ARROW)                      &kp LG(LEFT_ARROW)  &kp LS(LC(TAB))         &kp UP_ARROW    &kp LC(TAB)          &kp LG(RIGHT_ARROW)
-&kp HOME            &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp END              &trans      &trans  &kp HOME            &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp END
-&kp LEFT_SHIFT      &kp LG(LC(LEFT_ARROW))  &trans          &kp LG(LC(RIGHT_ARROW)) &trans            &trans      &trans  &trans              &kp LC(LG(LEFT_ARROW))  &trans          &kp LC(LG(RIGHT_ARROW)) &trans
-&trans              &trans                  &trans          &trans               &trans               &trans      &trans  &trans                                                                           &trans
-            >;
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
-        };
-
-        MOUSE {
-            bindings = <
-&to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0                                 &to_layer_0 0    &to_layer_0 0      &kp LC(T)          &to_layer_0 0      &m_n_bil_vl
-&to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &trans             &kp LC(V)  &kp LC(LS(TAB))  &mkp_exit_AML MB1  &mkp_exit_AML MB3  &mkp_exit_AML MB2  &kp LC(TAB)
-&to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &m_n_bil_vd    &trans             &kp LC(C)  &to_layer_0 0    &mkp MB4           &kp LC(W)          &mkp MB5           &trans
-&trans         &trans         &trans         &to_layer_0 0  &trans         &to_layer_0 0      &trans     &trans                                                                    &trans
+                &kp N1 &kp N2 &kp N3 &kp N4 &kp N5   &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
+                TR TR TR TR TR TR TR TR TR TR
+                TR TR TR TR TR TR TR TR TR TR TR TR
+                TR TR TR TR TR TR
             >;
         };
 
-        SCROLL {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                                &trans  &trans             &trans  &trans  &m_im_bil_vl
-&trans  &trans  &trans  &trans  &trans        &trans      &trans  &trans  &mkp_exit_AML MB1  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &lt_ipa 20 0  &trans      &trans  &trans  &trans             &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans        &trans      &trans  &trans                                     &trans
-            >;
-        };
-
-        layer_6 {
-            bindings = <
-&trans  &trans        &trans        &trans        &trans                                      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans        &trans        &trans        &trans        &trans        &trans  &trans      &trans        &trans        &trans        &trans        &trans        &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans        &trans      &bootloader  &trans        &trans        &trans        &trans        &trans        &bt BT_CLR
-&trans  &trans        &trans        &trans        &trans        &trans  &trans      &trans        &trans                                                  &bt BT_CLR_ALL
-            >;
-        };
-
-        // ==========================================
-        // IPA Layers (表に従った配置)
-        // 表のキー対応: q(0),r(3),t(4),y(5),p(9),s(11),d(12),f(13),g(14),h(17),j(18),k(19),'/(21),z(22),x(23),c(24),v(25),b(26),n(29),m(30),,(31),.(32)
-        // ==========================================
-
-        NASAL { // Layer 7
-            bindings = <
-&m_n_uvu_vl  TR  TR  &m_n_uvu_vd  &m_n_den_vl                    &m_n_pal_vd  TR            TR  TR            &m_n_bil_vl
-TR  &m_n_alv_vl  &m_n_den_vd  &m_n_lab_vl  &m_n_vel_vd  TR        TR  TR  &m_n_palv_vd &m_n_vel_vl  TR  TR
-&m_n_alv_vd  &m_n_palv_vl  &m_n_pal_vl  &m_n_lab_vd  &m_n_bil_vd  TR      TR  &m_n_uvu_vl  &m_n_uvu_vd  &m_n_ret_vl  &m_n_ret_vd  TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        PLOSIVE { // Layer 8 (close)
-            bindings = <
-&m_p_uvu_vl  &m_v_8_1  &m_v_8_2  &m_p_uvu_vd  &m_p_den_vl                    &m_v_8_5     &m_v_8_6      &m_v_8_7      TR            &m_p_bil_vl
-&m_v_8_10    &m_p_alv_vl  &m_p_den_vd  &m_p_lab_vl  &m_p_vel_vd  TR        TR  TR  &m_p_pal_vd  &m_p_vel_vl  TR  &m_p_epi_vd
-&m_p_alv_vd  TR            &m_p_pal_vl  &m_p_lab_vd  &m_p_bil_vd  TR      TR  &m_p_epi_vl  &m_p_epi_vd  &m_p_ret_vl  &m_p_ret_vd  TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        NSFRICATIVE { // Layer 9 (close-mid)
-            bindings = <
-&m_nsf_uvu_vl &m_v_9_1  &m_v_9_2  &m_nsf_uvu_vd &m_nsf_den_vl                &m_v_9_5     &m_v_9_6      &m_v_9_7      TR            &m_nsf_bil_vl
-&m_v_9_10     &m_nsf_alv_vl &m_nsf_den_vd &m_nsf_lab_vl  &m_nsf_vel_vd TR    TR  TR  &m_nsf_palv_vd &m_nsf_vel_vl TR  &m_nsf_glo_vd
-&m_nsf_alv_vd &m_nsf_palv_vl &m_nsf_pal_vl &m_nsf_lab_vd &m_nsf_bil_vd TR      TR  &m_nsf_epi_vl &m_nsf_epi_vd &m_nsf_ret_vl &m_nsf_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        NSAFFRICATE { // Layer 10
-            bindings = <
-&m_nsa_uvu_vl TR  TR  &m_nsa_uvu_vd &m_nsa_den_vl                &m_nsa_pal_vd TR            TR  TR            &m_nsa_bil_vl
-TR  &m_nsa_alv_vl &m_nsa_den_vd &m_nsa_lab_vl  &m_nsa_vel_vd TR    TR  TR  &m_nsa_palv_vd &m_nsa_vel_vl TR  &m_nsa_glo_vl
-&m_nsa_alv_vd &m_nsa_palv_vl &m_nsa_pal_vl &m_nsa_lab_vd &m_nsa_bil_vd TR      TR  &m_nsa_epi_vl &m_nsa_epi_vd &m_nsa_ret_vl &m_nsa_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        SFRICATIVE { // Layer 11 (Near-close)
-            bindings = <
-TR            &m_v_11_1  &m_v_11_2  TR  &m_sf_den_vl                         &m_v_11_5    &m_v_11_6     &m_v_11_7     TR            TR
-&m_v_11_10    &m_sf_alv_vl  &m_sf_den_vd  TR  TR  TR              TR  TR  &m_sf_palv_vd TR            TR  TR
-&m_sf_alv_vd  &m_sf_palv_vl  &m_sf_pal_vl  TR  TR  TR  TR  TR  TR              &m_sf_ret_vl &m_sf_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        SAFFRICATE { // Layer 12
-            bindings = <
-&m_sa_uvu_vl TR  TR  &m_sa_uvu_vd &m_sa_den_vl                &m_sa_pal_vd TR            TR  TR            TR
-TR  &m_sa_alv_vl  &m_sa_den_vd  TR  &m_sa_vel_vd TR      TR  TR  &m_sa_palv_vd &m_sa_vel_vl TR &m_sa_glo_vl
-&m_sa_alv_vd  &m_sa_palv_vl  &m_sa_pal_vl  TR  TR  TR  TR  &m_sa_epi_vl &m_sa_epi_vd &m_sa_ret_vl &m_sa_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        LFRICATIVE { // Layer 13
-            bindings = <
-TR  TR  TR  TR  &m_lf_den_vl                                &m_lf_pal_vd TR            TR  TR            TR
-TR  &m_lf_alv_vl  &m_lf_den_vd  TR  &m_lf_vel_vd TR      TR  TR  TR              &m_lf_vel_vl TR  TR
-&m_lf_alv_vd  TR            &m_lf_pal_vl  TR  TR  TR    TR  TR  TR              &m_lf_ret_vl &m_lf_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        LAFFRICATE { // Layer 14
-            bindings = <
-TR  TR  TR  TR  TR                                              &m_la_pal_vd TR            TR  TR            TR
-TR  &m_la_alv_vl  TR  TR  &m_la_vel_vd TR                TR  TR  TR              &m_la_vel_vl TR  TR
-&m_la_alv_vd  TR            &m_la_pal_vl  TR  TR  TR    TR  TR  TR              &m_la_ret_vl &m_la_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        APPROXIMANT { // Layer 15 (mid)
-            bindings = <
-TR            &m_v_15_1  &m_v_15_2  TR  TR                                   &m_v_15_5    &m_v_15_6     &m_v_15_7     TR            TR
-&m_v_15_10    TR  &m_ap_den_vd  TR  &m_ap_vel_vd TR                TR  TR  &m_ap_palv_vd TR            TR  TR
-&m_ap_alv_vd  TR            TR  &m_ap_lab_vd  &m_ap_bil_vd  TR              TR  TR  TR              TR            &m_ap_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        LAPPROXIMANT { // Layer 16
-            bindings = <
-TR  TR  TR  TR  &m_lap_den_vl                                   &m_lap_pal_vd TR            TR  TR            TR
-TR  &m_lap_alv_vd &m_lap_den_vd TR  &m_lap_vel_vd TR    TR  TR  TR               &m_lap_vel_vl TR  TR
-TR  TR            &m_lap_pal_vl TR  TR  TR              TR  TR  &m_lap_uvu_vd &m_lap_ret_vl &m_lap_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        TAP { // Layer 17 (open-mid)
-            bindings = <
-TR            &m_v_17_1  &m_v_17_2  &m_tap_uvu_vd TR                         &m_v_17_5    &m_v_17_6     &m_v_17_7     TR            TR
-&m_v_17_10    &m_tap_alv_vl TR  TR  TR  TR                                TR  TR  TR              TR            TR  TR
-&m_tap_alv_vd TR            TR  &m_tap_lab_vd  &m_tap_bil_vd  TR                  TR  &m_tap_epi_vd TR          &m_tap_ret_vl &m_tap_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        LTAP { // Layer 18
-            bindings = <
-TR  TR  TR  TR  TR                                              &m_ltap_pal_vd TR          TR  TR            TR
-TR  &m_ltap_alv_vl TR  TR  &m_ltap_vel_vd TR            TR  TR  TR              TR            TR  TR
-&m_ltap_alv_vd TR            TR  TR  TR  TR                TR  TR              TR            &m_ltap_ret_vl &m_ltap_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        TRILL { // Layer 19 (Near-open)
-            bindings = <
-&m_tr_uvu_vl  &m_v_19_1  &m_v_19_2  &m_tr_uvu_vd &m_tr_alv_vl                &m_v_19_5    &m_v_19_6     &m_v_19_7     TR            &m_tr_bil_vl
-&m_v_19_10    &m_tr_alv_vd TR  TR  TR  TR                                TR  TR  &m_tr_palv_vd TR            TR  TR
-TR  TR            TR  TR  &m_tr_bil_vd  TR                              TR  &m_tr_epi_vl &m_tr_epi_vd &m_tr_ret_vl &m_tr_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        IMPLO { // Layer 20 (Open)
-            bindings = <
-&m_im_uvu_vd  &m_v_20_1  &m_v_20_2  TR  &m_im_den_vl                         &m_v_20_5    &m_v_20_6     &m_v_20_7     TR            &m_im_bil_vl
-&m_v_20_10    &m_im_alv_vl &m_im_alv_vd TR  &m_im_pal_vl TR        TR  TR  &m_im_palv_vd TR            TR  TR
-TR  &m_im_palv_vl TR  TR  &m_im_bil_vd  TR                              TR  TR            TR            &m_im_ret_vl &m_im_ret_vd TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
-
-        LAT_IMPLO { // Layer 21 (新規追加)
-            bindings = <
-TR  TR  TR  TR  &m_lim_den_vl                                   TR            TR            TR  TR            TR
-TR  TR  TR  TR  TR  TR                                      TR  TR  TR              TR            TR  TR
-TR  TR  TR  TR  TR  TR                                      TR  TR              TR            TR  TR            TR
-TR  TR  TR  TR  TR  TR                                  TR  TR            TR
-            >;
-        };
+        nasal_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        plosive_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        nsfricative_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        nsaffricate_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        sfricative_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        saffricate_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        lfricative_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        laffricate_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        approximant_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        lapproximant_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        tap_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        ltap_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        trill_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        implo_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
+        lat_implo_layer { bindings = <TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR>; };
     };
 };
