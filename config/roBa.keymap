@@ -474,10 +474,10 @@ bindings = <&kp U &kp N0 &kp N2 &kp N8 &kp N2 &kp RET>; }; // ʂ
 m_sf_ret_vd: m_sf_ret_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
 bindings = <&kp U &kp N0 &kp N2 &kp N9 &kp N0 &kp RET>; }; // ʐ
 
-m_sf_pal_vl: m_sf_pal_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
+m_sf_pala_vl: m_sf_pala_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
 bindings = <&kp U &kp N0 &kp N2 &kp N5 &kp N5 &kp RET>; }; // ɕ
 
-m_sf_pal_vd: m_sf_pal_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
+m_sf_pala_vd: m_sf_pala_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
 bindings = <&kp U &kp N0 &kp N2 &kp N9 &kp N1 &kp RET>; }; // ʑ
 
 // --- Layer 12: Sibilant Affricate ---
@@ -549,10 +549,10 @@ m_lf_ret_vd: m_lf_ret_vd {
     >;
 }; // ɭ̝
 
-m_lf_pal_vl: m_lf_pal_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
+m_lf_pala_vl: m_lf_pala_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
 bindings = <&kp U &kp N0 &kp N2 &kp N8 &kp E &kp RET>; }; // ʎ̝̊
 
-m_lf_pal_vd: m_lf_pal_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
+m_lf_pala_vd: m_lf_pala_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
 bindings = <&kp U &kp N0 &kp N2 &kp N8 &kp E &kp RET>; };
 
 m_lf_vel_vl: m_lf_vel_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
@@ -584,7 +584,7 @@ bindings = <
 &kp U &kp N0 &kp N2 &kp N6 &kp D
 &kp U &kp N0 &kp N3 &kp N1 &kp D
 &kp RET>; };
-        m_la_pal_vl: m_la_pal_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
+        m_la_pala_vl: m_la_pala_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
 bindings = <
 &kp C
 &kp U &kp N0 &kp N3 &kp N6 &kp N1
@@ -593,7 +593,7 @@ bindings = <
 &kp U &kp N0 &kp N3 &kp N0 &kp A
 &kp RET>; }; // c͡ʎ̝̊
 
-m_la_pal_vd: m_la_pal_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
+m_la_pala_vd: m_la_pala_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
 bindings = <
 &kp U &kp N0 &kp N2 &kp N5 &kp F
 &kp U &kp N0 &kp N3 &kp N6 &kp N1
@@ -637,7 +637,7 @@ bindings = <&kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp U &kp N0 &kp N3 &kp N2 &kp N0 
 m_ap_ret_vd: m_ap_ret_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
 bindings = <&kp U &kp N0 &kp N2 &kp N7 &kp B &kp RET>; };
 
-m_ap_pal_vd: m_ap_pal_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
+m_ap_pala_vd: m_ap_pala_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
 bindings = <&kp J &kp RET>; };
 
 m_ap_vel_vd: m_ap_vel_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>;
