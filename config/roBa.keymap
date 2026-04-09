@@ -523,10 +523,10 @@
 
 
         // Nasal (Layer 7)
-        MAC_IPA(m_n_bil_vl, N0, N0, N6, D)   // m̥ (U+026D + 0325 だが簡易的にmで代用される事も多いため調整が必要な場合あり)
-        MAC_IPA(m_n_bil_vd, N0, N0, N6, D)   // m
-        MAC_IPA(m_n_lab_vl, N0, N2, N7, N1)   // ɱ̊
-        MAC_IPA(m_n_lab_vd, N0, N2, N7, N1)   // ɱ
+        MAC_IPA(m_nsa_bil_vl, N0, N0, N6, D)   // m̥ (U+026D + 0325 だが簡易的にmで代用される事も多いため調整が必要な場合あり)
+        MAC_IPA(m_nsa_bil_vd, N0, N0, N6, D)   // m
+        MAC_IPA(m_nsa_lab_vl, N0, N2, N7, N1)   // ɱ̊
+        MAC_IPA(m_nsa_lab_vd, N0, N2, N7, N1)   // ɱ
 
         // Plosive (Layer 8)
         MAC_IPA(m_p_bil_vl, N0, N0, N7, N0)   // p
@@ -553,13 +553,13 @@
         MAC_IPA(m_im_bil_vd, N0, N2, N5, N3)   // ɓ
 
         // Layer 7: Nasal
-        MAC_IPA(m_n_den_vl, N0, N3, N2, A) MAC_IPA(m_n_den_vd, N0, N0, N6, E)
-        MAC_IPA(m_n_alv_vl, N0, N3, N2, B) MAC_IPA(m_n_alv_vd, N0, N0, N6, E)
-        MAC_IPA(m_n_palv_vl, N0, N3, N2, C) MAC_IPA(m_n_palv_vd, N0, N3, N2, D)
-        MAC_IPA(m_n_ret_vl, N0, N2, N7, N3) MAC_IPA(m_n_ret_vd, N0, N2, N7, N3)
-        MAC_IPA(m_n_pal_vl, N0, N2, N7, N2) MAC_IPA(m_n_pal_vd, N0, N2, N7, N2)
-        MAC_IPA(m_n_vel_vl, N0, N1, N4, B) MAC_IPA(m_n_vel_vd, N0, N1, N4, B)
-        MAC_IPA(m_n_uvu_vl, N0, N2, N7, N4) MAC_IPA(m_n_uvu_vd, N0, N2, N7, N4)
+        MAC_IPA(m_nsa_den_vl, N0, N3, N2, A) MAC_IPA(m_nsa_den_vd, N0, N0, N6, E)
+        MAC_IPA(m_nsa_alv_vl, N0, N3, N2, B) MAC_IPA(m_nsa_alv_vd, N0, N0, N6, E)
+        MAC_IPA(m_nsa_palv_vl, N0, N3, N2, C) MAC_IPA(m_nsa_palv_vd, N0, N3, N2, D)
+        MAC_IPA(m_nsa_ret_vl, N0, N2, N7, N3) MAC_IPA(m_nsa_ret_vd, N0, N2, N7, N3)
+        MAC_IPA(m_nsa_pal_vl, N0, N2, N7, N2) MAC_IPA(m_nsa_pal_vd, N0, N2, N7, N2)
+        MAC_IPA(m_nsa_vel_vl, N0, N1, N4, B) MAC_IPA(m_nsa_vel_vd, N0, N1, N4, B)
+        MAC_IPA(m_nsa_uvu_vl, N0, N2, N7, N4) MAC_IPA(m_nsa_uvu_vd, N0, N2, N7, N4)
 
         // Layer 8: Plosive
         MAC_IPA(m_p_den_vl, N0, N0, N7, N4) MAC_IPA(m_p_den_vd, N0, N0, N6, N4)
@@ -736,9 +736,9 @@
 
         MOUSE {
             bindings = <
-&to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0                                 &to_layer_0 0    &to_layer_0 0      &kp LC(T)          &to_layer_0 0      &m_n_bil_vl
+&to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0                                 &to_layer_0 0    &to_layer_0 0      &kp LC(T)          &to_layer_0 0      &m_nsa_bil_vl
 &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &trans             &kp LC(V)  &kp LC(LS(TAB))  &mkp_exit_AML MB1  &mkp_exit_AML MB3  &mkp_exit_AML MB2  &kp LC(TAB)
-&to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &m_n_bil_vd    &trans             &kp LC(C)  &to_layer_0 0    &mkp MB4           &kp LC(W)          &mkp MB5           &trans
+&to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &m_nsa_bil_vd    &trans             &kp LC(C)  &to_layer_0 0    &mkp MB4           &kp LC(W)          &mkp MB5           &trans
 &trans         &trans         &trans         &to_layer_0 0  &trans         &to_layer_0 0      &trans     &trans                                                                    &trans
             >;
         };
@@ -768,9 +768,9 @@
 
         NASAL { // Layer 7
             bindings = <
-&m_n_uvu_vl  TR  TR  &m_n_uvu_vd  &m_n_den_vl                    &m_n_pal_vd  TR            TR  TR            &m_n_bil_vl
-TR  &m_n_alv_vl  &m_n_den_vd  &m_n_lab_vl  &m_n_vel_vd  TR        TR  TR  &m_n_palv_vd &m_n_vel_vl  TR  TR
-&m_n_alv_vd  &m_n_palv_vl  &m_n_pal_vl  &m_n_lab_vd  &m_n_bil_vd  TR      TR  &m_n_uvu_vl  &m_n_uvu_vd  &m_n_ret_vl  &m_n_ret_vd  TR
+&m_nsa_uvu_vl  TR  TR  &m_nsa_uvu_vd  &m_nsa_den_vl                    &m_nsa_pal_vd  TR            TR  TR            &m_nsa_bil_vl
+TR  &m_nsa_alv_vl  &m_nsa_den_vd  &m_nsa_lab_vl  &m_nsa_vel_vd  TR        TR  TR  &m_nsa_palv_vd &m_nsa_vel_vl  TR  TR
+&m_nsa_alv_vd  &m_nsa_palv_vl  &m_nsa_pal_vl  &m_nsa_lab_vd  &m_nsa_bil_vd  TR      TR  &m_nsa_uvu_vl  &m_nsa_uvu_vd  &m_nsa_ret_vl  &m_nsa_ret_vd  TR
 TR  TR  TR  TR  TR  TR                                  TR  TR            TR
             >;
         };
@@ -795,9 +795,9 @@ TR  TR  TR  TR  TR  TR                                  TR  TR            TR
 
         NSAFFRICATE { // Layer 10
             bindings = <
-&m_nsa_uvu_vl TR  TR  &m_nsa_uvu_vd &m_nsa_den_vl                &m_nsa_pal_vd TR            TR  TR            &m_n_bil_vl
+&m_nsa_uvu_vl TR  TR  &m_nsa_uvu_vd &m_nsa_den_vl                &m_nsa_pal_vd TR            TR  TR            &m_nsa_bil_vl
 TR  &m_nsa_alv_vl &m_nsa_den_vd &m_nsa_lab_vl  &m_nsa_vel_vd TR    TR  TR  &m_nsa_palv_vd &m_nsa_vel_vl TR  &m_nsa_glo_vl
-&m_nsa_alv_vd &m_nsa_palv_vl &m_nsa_pal_vl &m_nsa_lab_vd &m_n_bil_vd TR      TR  &m_nsa_epi_vl &m_nsa_epi_vd &m_nsa_ret_vl &m_nsa_ret_vd TR
+&m_nsa_alv_vd &m_nsa_palv_vl &m_nsa_pal_vl &m_nsa_lab_vd &m_nsa_bil_vd TR      TR  &m_nsa_epi_vl &m_nsa_epi_vd &m_nsa_ret_vl &m_nsa_ret_vd TR
 TR  TR  TR  TR  TR  TR                                  TR  TR            TR
             >;
         };
