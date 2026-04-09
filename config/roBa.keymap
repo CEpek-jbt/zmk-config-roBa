@@ -808,10 +808,10 @@
 
         MOUSE {
             bindings = <
-&to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0                                 &to_layer_0 0    &to_layer_0 0      &kp LC(T)          &to_layer_0 0      &m_nsa_bil_vl
-&to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &trans             &kp LC(V)  &kp LC(LS(TAB))  &mkp_exit_AML MB1  &mkp_exit_AML MB3  &mkp_exit_AML MB2  &kp LC(TAB)
-&to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &to_layer_0 0  &m_nsa_bil_vd    &trans             &kp LC(C)  &to_layer_0 0    &mkp MB4           &kp LC(W)          &mkp MB5           &trans
-&trans         &trans         &trans         &to_layer_0 0  &trans         &to_layer_0 0      &trans     &trans                                                                    &trans
+&trans  &trans  &trans  &trans  &trans                                 &trans    &trans      &kp LC(T)          &trans      &m_nsa_bil_vl
+&trans  &trans  &trans  &trans  &trans  &trans             &kp LC(V)  &kp LC(LS(TAB))  &mkp_exit_AML MB1  &mkp_exit_AML MB3  &mkp_exit_AML MB2  &kp LC(TAB)
+&trans  &trans  &trans  &trans  &m_nsa_bil_vd    &trans             &kp LC(C)  &trans    &mkp MB4           &kp LC(W)          &mkp MB5           &trans
+&trans         &trans         &trans         &trans  &trans         &trans      &trans     &trans                                                                    &trans
             >;
         };
 
