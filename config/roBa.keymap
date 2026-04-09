@@ -406,43 +406,43 @@ m_nas_uv_vd: m_nas_uv_vd { compatible = "zmk,behavior-macro"; #binding-cells = <
     m_nsf_glo_vd: m_nsf_glo_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; bindings = <&kp U &kp N0 &kp N2 &kp N6 &kp N6 &kp RET>; }; // ɦ
 
     // --- Layer 10: Non-sibilant Affricate (非歯擦音破擦音) ---
-    m_nsaff_bil_vl: m_nsaff_bil_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_bil_vl: m_nsa_bil_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp P &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N8 &kp RET>; }; // p͡ɸ
-    m_nsaff_bil_vd: m_nsaff_bil_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_bil_vd: m_nsa_bil_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp B &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N3 &kp B &kp N2 &kp RET>; }; // b͡β
-    m_nsaff_lab_vl: m_nsaff_lab_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_lab_vl: m_nsa_lab_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp P &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp F>; }; // p̪͡f
-    m_nsaff_lab_vd: m_nsaff_lab_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_lab_vd: m_nsa_lab_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp B &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp V>; }; // b̪͡v
-    m_nsaff_den_vl: m_nsaff_den_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_den_vl: m_nsa_den_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp T &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N3 &kp B &kp N8 &kp RET>; }; // t̪͡θ
-    m_nsaff_den_vd: m_nsaff_den_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_den_vd: m_nsa_den_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp D &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp F &kp N0 &kp RET>; }; // d̪͡ð
-    m_nsaff_alv_vl: m_nsaff_alv_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_alv_vl: m_nsa_alv_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp T &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET &kp U &kp N0 &kp N3 &kp N0 &kp A &kp RET>; }; // t͡ɹ̝̊
-    m_nsaff_alv_vd: m_nsaff_alv_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_alv_vd: m_nsa_alv_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp D &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET>; }; // d͡ɹ̝
-    m_nsaff_palv_vl: m_nsaff_palv_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_palv_vl: m_nsa_palv_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp T &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET &kp U &kp N0 &kp N3 &kp N0 &kp A &kp RET>; }; // t̠͡ɹ̠̊˔
-    m_nsaff_palv_vd: m_nsaff_palv_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_palv_vd: m_nsa_palv_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp D &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET>; }; // d̠͡ɹ̠˔
-    m_nsaff_ret_vl: m_nsaff_ret_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_ret_vl: m_nsa_ret_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp U &kp N0 &kp N2 &kp N8 &kp N8 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp B &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET &kp U &kp N0 &kp N3 &kp N0 &kp A &kp RET>; }; // ʈ͡ɻ̊˔
-    m_nsaff_ret_vd: m_nsaff_ret_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
-        bindings = <&kp U &kp N0 &kp N2 &kp N5 &kp N6 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 & B &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET>; }; // ɖ͡ɻ̝
-    m_nsaff_pala_vl: m_nsaff_pala_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_ret_vd: m_nsa_ret_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+        bindings = <&kp U &kp N0 &kp N2 &kp N5 &kp N6 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp B &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET>; }; // ɖ͡ɻ̝
+    m_nsa_pala_vl: m_nsa_pala_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp C &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp E &kp N7 &kp RET>; }; // c͡ç
-    m_nsaff_pala_vd: m_nsaff_pala_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_pala_vd: m_nsa_pala_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp U &kp N0 &kp N2 &kp N5 &kp F &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N9 &kp D &kp RET>; }; // ɟ͡ʝ
-    m_nsaff_vel_vl: m_nsaff_vel_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_vel_vl: m_nsa_vel_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp K &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET>; }; // k͡x
-    m_nsaff_vel_vd: m_nsaff_vel_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_vel_vd: m_nsa_vel_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp G &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N6 &kp N3 &kp RET>; }; // g͡ɣ
-    m_nsaff_uv_vl: m_nsaff_uv_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_uv_vl: m_nsa_uv_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp Q &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N3 &kp C &kp N7 &kp RET>; }; // q͡χ
-    m_nsaff_uv_vd: m_nsaff_uv_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_uv_vd: m_nsa_uv_vd { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp U &kp N0 &kp N2 &kp N6 &kp N2 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N8 &kp N1 &kp RET>; }; // ɢ͡ʁ
-    m_nsaff_epi_vl: m_nsaff_epi_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
+    m_nsa_epi_vl: m_nsa_epi_vl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <1>; tap-ms = <1>; 
         bindings = <&kp U &kp N0 &kp N2 &kp A &kp N1 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N
 
     // --- Layer 16: Lateral Approximant (側面接近音) ---
