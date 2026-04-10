@@ -1,6 +1,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
 
+/*
 / {
     chosen {
         zmk,physical-layout = &roba_physical_layout;
@@ -123,3 +124,4 @@
         reg = <0>;
     };
 };
+*/
