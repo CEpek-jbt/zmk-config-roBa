@@ -1461,12 +1461,6 @@
         text = " ";
     };
 
-    mac_ipa_030A: mac_ipa_030A {
-        compatible = "zmk,behavior-text";
-        #binding-cells = <0>;
-        text = " ";
-    };
-
     mac_ipa_0335: mac_ipa_0335 {
         compatible = "zmk,behavior-text";
         #binding-cells = <0>;
