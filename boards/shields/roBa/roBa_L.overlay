@@ -1,3 +1,4 @@
+#include "roBa.dtsi"
 
 &kscan0 {
         col-gpios =
