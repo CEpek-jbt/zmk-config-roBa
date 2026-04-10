@@ -783,8 +783,6 @@
             bindings = <&mac_ipa_0260_0361_0253>;
         };
 
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
