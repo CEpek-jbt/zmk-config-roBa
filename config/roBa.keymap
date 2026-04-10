@@ -15,7 +15,7 @@
 #define NSAFFRICATE 10
 #define SFRICATIVE 11
 #define SAFFRICATE 12
-#define LFRICATIVE 13
+#define LFRICATIVE 1
 #define LAFFRICATE 14
 #define APPROXIMANT 15
 #define LAPPROXIMANT 16
@@ -2530,6 +2530,7 @@ v_op_ba_ro: v_op_ba_ro {
     text = "ɒ";
 };
 
+behaviors {
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -2537,8 +2538,6 @@ v_op_ba_ro: v_op_ba_ro {
             tap-ms = <20>;
         };
 
-
-behaviors {
         ipa_sw: lt_ipa {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
