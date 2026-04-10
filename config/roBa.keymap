@@ -709,67 +709,67 @@
         combo_RNM {
             timeout-ms = <300>;
             key-positions = <3 29 30>;
-            bindings = <&m_nr_m>;
+            bindings = <&mac_ipa_0273_0361_006D>;
         };
 
         combo_NGM {
             timeout-ms = <300>;
             key-positions = <29 14 30>;
-            bindings = <&m_ng_m>;
+            bindings = <&mac_ipa_014B_0361_006D>;
         };
 
         combo_TP {
             timeout-ms = <300>;
             key-positions = <4 9>;
-            bindings = <&m_t_p>;
+            bindings = <&mac_ipa_0074_0361_0070>;
         };
 
         combo_DB {
             timeout-ms = <300>;
             key-positions = <12 26>;
-            bindings = <&m_d_b>;
+            bindings = <&mac_ipa_0064_0361_0062>;
         };
 
         combo_RTP {
             timeout-ms = <300>;
             key-positions = <3 4 9>;
-            bindings = <&m_tr_p>;
+            bindings = <&mac_ipa_0288_0361_0070>;
         };
 
         combo_RDB_2 {
             timeout-ms = <300>;
             key-positions = <3 12 26>;
-            bindings = <&m_dr_b>;
+            bindings = <&mac_ipa_0256_0361_0062>;
         };
 
         combo_KP {
             timeout-ms = <300>;
             key-positions = <19 9>;
-            bindings = <&m_k_p>;
+            bindings = <&mac_ipa_006B_0361_0070>;
         };
 
         combo_GB {
             timeout-ms = <300>;
             key-positions = <14 26>;
-            bindings = <&m_g_b>;
+            bindings = <&mac_ipa_0067_0361_0062>;
         };
 
         combo_QH {
             timeout-ms = <300>;
             key-positions = <0 17>;
-            bindings = <&m_q_a>;
+            bindings = <&mac_ipa_0071_0361_02A1>;
         };
 
         combo_QP {
             timeout-ms = <300>;
             key-positions = <0 9>;
-            bindings = <&m_q_p>;
+            bindings = <&mac_ipa_0071_0361_0070>;
         };
 
         combo_HYY {
             timeout-ms = <300>;
             key-positions = <17 5 5>;
-            bindings = <&m_h_ring>;
+            bindings = <&mac_ipa_0265_030A>;
         };
 
         combo_YY {
@@ -793,13 +793,13 @@
         combo_MKP {
             timeout-ms = <300>;
             key-positions = <30 19 9>;
-            bindings = <&m_complex1>;
+            bindings = <&mac_ipa_0260_030A_035C_0253_0325>;
         };
 
         combo_MGB {
             timeout-ms = <300>;
             key-positions = <30 14 26>;
-            bindings = <&m_complex2>;
+            bindings = <&mac_ipa_0260_0361_0253>;
         };
     };
 
