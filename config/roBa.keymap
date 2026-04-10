@@ -968,8 +968,7 @@
     };
 
 };
-
-macros {
+/{ macros {
     mac_ipa_030D: mac_ipa_030D {
         compatible = "zmk,behavior-text";
         #binding-cells = <0>;
