@@ -2556,7 +2556,7 @@ v_op_ba_ro: v_op_ba_ro {
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             flavor = "hold-preferred";
-            bindings = <&mo>, <&kp>;
+            bindings = <&mo &kp>;
  // レイヤー(mo)とキー(kp)を組み合わせる標準的な設定
         };
 
@@ -2564,7 +2564,7 @@ v_op_ba_ro: v_op_ba_ro {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&kp>;
+            bindings = <&mo &kp>;
         };
     };
 
