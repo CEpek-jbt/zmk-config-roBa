@@ -32,12 +32,10 @@
 
 &sl { release-after-ms = <250>; };
 
-/*
 &trackball {
     automouse-layer = <4>;
     scroll-layers = <5>;
 };
-*/
 
 / {
     combos {
@@ -827,7 +825,7 @@ behaviors {
         bindings = <&mo NUM &kp A>;
     };
 };
-/{
+
 macros {
     // Solution 4: Enhanced macro-based Unicode input for macOS
     // Using proper macro press/release sequences with Option key
