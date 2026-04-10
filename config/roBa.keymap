@@ -703,7 +703,7 @@
         combo_NM {
             timeout-ms = <300>;
             key-positions = <29 30>;
-            bindings = <&m_n_m>;
+            bindings = <&mac_ipa_006E_0361_006D>;
         };
 
         combo_RNM {
