@@ -977,6 +977,7 @@
 &trans  &trans  &trans  &trans  &trans          &trans      &trans  &trans  &trans
             >;
         };
+    };
 };
 
     macros {
