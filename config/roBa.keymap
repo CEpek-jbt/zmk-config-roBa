@@ -37,7 +37,6 @@
     scroll-layers = <5>;
 };
 
-/ {
     combos {
         compatible = "zmk,combos";
 
@@ -793,7 +792,6 @@
         };
     };
 
-/ {
     macros {
         // ==========================================
         // IPA ダイアクリティック / 記号用マクロ群
@@ -2541,7 +2539,6 @@ v_op_ba_ro: v_op_ba_ro {
 };
 };
 
-/ {
   behaviors {
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
@@ -2570,7 +2567,6 @@ v_op_ba_ro: v_op_ba_ro {
         };
     };
 
-/ {
     keymap {
         compatible = "zmk,keymap";
 
