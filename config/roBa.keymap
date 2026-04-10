@@ -827,7 +827,6 @@ behaviors {
         bindings = <&mo NUM &kp A>;
     };
 };
-
 /{
 macros {
     // Solution 4: Enhanced macro-based Unicode input for macOS
@@ -1979,4 +1978,3 @@ macros {
     // Add more macros as needed...
 };
 };
-
