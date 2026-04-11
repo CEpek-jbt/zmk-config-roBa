@@ -2874,6 +2874,250 @@
             unicode-code = <0x03B2>;
         }; // beta (voiced bilabial approximant)
         
+        m_lap_den_vd: m_lap_den_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x00F0>;
+        }; // eth (voiced dental lateral approximant)
+        
+        m_lap_alv_vd: m_lap_alv_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0279>;
+        }; //  (voiced alveolar lateral approximant)
+        
+        m_lap_pala_vd: m_lap_pala_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x006A>;
+        }; // j (voiced palatal lateral approximant)
+        
+        m_lap_pala_vl: m_lap_pala_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0279 0x0329>;
+        }; //  + ring below (voiceless palatal lateral approximant)
+        
+        m_lap_vel_vd: m_lap_vel_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0265>;
+        }; //  (voiced velar lateral approximant)
+        
+        m_lap_vel_vl: m_lap_vel_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0265 0x0329>;
+        }; //  + ring below (voiceless velar lateral approximant)
+        
+        m_lap_uv_vd: m_lap_uv_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x028D>;
+        }; //  (voiced uvular lateral approximant)
+        
+        m_lap_ret_vl: m_lap_ret_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x027B 0x0329>;
+        }; //  + ring below (voiceless retroflex lateral approximant)
+        
+        m_lap_ret_vd: m_lap_ret_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x027B>;
+        }; //  (voiced retroflex lateral approximant)
+        
+        // Tap macros (m_tap_*)
+        m_tap_uv_vd: m_tap_uv_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0295>;
+        }; //  (voiced uvular tap)
+        
+        m_tap_alv_vl: m_tap_alv_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0267>;
+        }; //  (voiceless alveolar tap)
+        
+        m_tap_alv_vd: m_tap_alv_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x027E>;
+        }; //  (voiced alveolar tap)
+        
+        m_tap_lab_vd: m_tap_lab_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0271>;
+        }; //  (voiced labiodental tap)
+        
+        m_tap_bil_vd: m_tap_bil_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0255>;
+        }; //  (voiced bilabial tap)
+        
+        m_tap_epi_vd: m_tap_epi_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x02A2>;
+        }; //  (voiced epiglottal tap)
+        
+        m_tap_ret_vl: m_tap_ret_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0282>;
+        }; //  (voiceless retroflex tap)
+        
+        m_tap_ret_vd: m_tap_ret_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0290>;
+        }; //  (voiced retroflex tap)
+        
+        // Lateral tap macros (m_ltap_*)
+        m_ltap_pala_vd: m_ltap_pala_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x006A>;
+        }; // j (voiced palatal lateral tap)
+        
+        m_ltap_alv_vl: m_ltap_alv_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026C 0x0329>;
+        }; //  + ring below (voiceless alveolar lateral tap)
+        
+        m_ltap_alv_vd: m_ltap_alv_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026E 0x0329>;
+        }; //  + ring below (voiced alveolar lateral tap)
+        
+        m_ltap_vel_vd: m_ltap_vel_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0265 0x0329>;
+        }; //  + ring below (voiced velar lateral tap)
+        
+        m_ltap_ret_vl: m_ltap_ret_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026D 0x032D>;
+        }; //  + line below (voiceless retroflex lateral tap)
+        
+        m_ltap_ret_vd: m_ltap_ret_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026D 0x0331>;
+        }; //  + macron below (voiced retroflex lateral tap)
+        
+        // Trill macros (m_tr_*)
+        m_tr_uv_vl: m_tr_uv_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x02A1>;
+        }; //  (voiceless uvular trill)
+        
+        m_tr_uv_vd: m_tr_uv_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x02A2>;
+        }; //  (voiced uvular trill)
+        
+        m_tr_alv_vl: m_tr_alv_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026A>;
+        }; //  (voiceless alveolar trill)
+        
+        m_tr_alv_vd: m_tr_alv_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0272>;
+        }; //  (voiced alveolar trill)
+        
+        m_tr_bil_vl: m_tr_bil_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0255>;
+        }; //  (voiceless bilabial trill)
+        
+        m_tr_bil_vd: m_tr_bil_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0062>;
+        }; // b (voiced bilabial trill)
+        
+        m_tr_palv_vd: m_tr_palv_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0272>;
+        }; //  (voiced postalveolar trill)
+        
+        m_tr_epi_vl: m_tr_epi_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x02A1>;
+        }; //  (voiceless epiglottal trill)
+        
+        m_tr_epi_vd: m_tr_epi_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x02A2>;
+        }; //  (voiced epiglottal trill)
+        
+        m_tr_ret_vl: m_tr_ret_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0282>;
+        }; //  (voiceless retroflex trill)
+        
+        m_tr_ret_vd: m_tr_ret_vd {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0290>;
+        }; //  (voiced retroflex trill)
+        
+        // Near-open vowels (v_no_*)
+        v_no_ce_ro: v_no_ce_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026F>;
+        }; //  (near-open central rounded vowel)
+        
+        v_no_ba_un: v_no_ba_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x025B>;
+        }; //  (near-open front unrounded vowel)
+        
+        v_no_ba_ro: v_no_ba_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0153>;
+        }; // oe (near-open front rounded vowel)
+        
+        v_no_fr_un: v_no_fr_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x025C>;
+        }; //  (near-open front unrounded vowel)
+        
+        v_no_fr_ro: v_no_fr_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0153>;
+        }; // oe (near-open front rounded vowel)
+        
+        v_no_ce_un: v_no_ce_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x025D>;
+        }; //  (near-open central unrounded vowel)
+        
         // Labial-velar approximants
         
         
