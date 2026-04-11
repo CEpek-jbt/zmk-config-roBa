@@ -2679,6 +2679,195 @@
             unicode-code = <0x027B>;
         }; //  (voiced retroflex approximant)
         
+        // ==========================================
+        // Missing vowel macros for keymap layers
+        // ==========================================
+        
+        // Close vowels (v_cl_*)
+        v_cl_ce_ro: v_cl_ce_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0069>;
+        }; // i (close front unrounded vowel)
+        
+        v_cl_ba_un: v_cl_ba_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0079>;
+        }; // y (close front rounded vowel)
+        
+        v_cl_ba_ro: v_cl_ba_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0075>;
+        }; // u (close back rounded vowel)
+        
+        v_cl_fr_un: v_cl_fr_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026F>;
+        }; //  (close front unrounded vowel)
+        
+        v_cl_fr_ro: v_cl_fr_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026F>;
+        }; //  (close front rounded vowel)
+        
+        v_cl_ce_un: v_cl_ce_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0268>;
+        }; //  (close central unrounded vowel)
+        
+        // Close-mid vowels (v_cm_*)
+        v_cm_ce_ro: v_cm_ce_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026A>;
+        }; //  (close-mid central rounded vowel)
+        
+        v_cm_ba_un: v_cm_ba_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0065>;
+        }; // e (close-mid front unrounded vowel)
+        
+        v_cm_ba_ro: v_cm_ba_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x00F8>;
+        }; // ø (close-mid front rounded vowel)
+        
+        v_cm_fr_un: v_cm_fr_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0258>;
+        }; //  (close-mid front unrounded vowel)
+        
+        v_cm_fr_ro: v_cm_fr_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0275>;
+        }; //  (close-mid front rounded vowel)
+        
+        v_cm_ce_un: v_cm_ce_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0259>;
+        }; //  (close-mid central unrounded vowel)
+        
+        // Near-close vowels (v_nc_*)
+        v_nc_ce_ro: v_nc_ce_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026A>;
+        }; //  (near-close central rounded vowel)
+        
+        v_nc_ba_un: v_nc_ba_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026A>;
+        }; //  (near-close front unrounded vowel)
+        
+        v_nc_ba_ro: v_nc_ba_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0275>;
+        }; //  (near-close front rounded vowel)
+        
+        v_nc_fr_un: v_nc_fr_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026A>;
+        }; //  (near-close front unrounded vowel)
+        
+        v_nc_fr_ro: v_nc_fr_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0275>;
+        }; //  (near-close front rounded vowel)
+        
+        v_nc_ce_un: v_nc_ce_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026A>;
+        }; //  (near-close central unrounded vowel)
+        
+        // Mid vowels (v_mi_*)
+        v_mi_ce_ro: v_mi_ce_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0268>;
+        }; //  (mid central rounded vowel)
+        
+        v_mi_ba_un: v_mi_ba_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0065>;
+        }; // e (mid front unrounded vowel)
+        
+        v_mi_ba_ro: v_mi_ba_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x00F8>;
+        }; // ø (mid front rounded vowel)
+        
+        v_mi_fr_un: v_mi_fr_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0258>;
+        }; //  (mid front unrounded vowel)
+        
+        v_mi_fr_ro: v_mi_fr_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0275>;
+        }; //  (mid front rounded vowel)
+        
+        v_mi_ce_un: v_mi_ce_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0259>;
+        }; //  (mid central unrounded vowel)
+        
+        // Open-mid vowels (v_om_*)
+        v_om_ce_ro: v_om_ce_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026F>;
+        }; //  (open-mid central rounded vowel)
+        
+        v_om_ba_un: v_om_ba_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x025B>;
+        }; //  (open-mid front unrounded vowel)
+        
+        v_om_ba_ro: v_om_ba_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0153>;
+        }; // oe (open-mid front rounded vowel)
+        
+        v_om_fr_un: v_om_fr_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x025C>;
+        }; //  (open-mid front unrounded vowel)
+        
+        v_om_fr_ro: v_om_fr_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0153>;
+        }; // oe (open-mid front rounded vowel)
+        
+        v_om_ce_un: v_om_ce_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x025D>;
+        }; //  (open-mid central unrounded vowel)
+        
         // Labial-velar approximants
         
         
