@@ -3118,6 +3118,49 @@
             unicode-code = <0x025D>;
         }; //  (near-open central unrounded vowel)
         
+        v_op_ce_ro: v_op_ce_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x026F>;
+        }; //  (open central rounded vowel)
+        
+        // Open vowels (v_op_*)
+        v_op_ba_un: v_op_ba_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0061>;
+        }; // a (open front unrounded vowel)
+        
+        v_op_ba_ro: v_op_ba_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0276>;
+        }; //  (open front rounded vowel)
+        
+        v_op_fr_un: v_op_fr_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0061>;
+        }; // a (open front unrounded vowel)
+        
+        v_op_fr_ro: v_op_fr_ro {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0276>;
+        }; //  (open front rounded vowel)
+        
+        v_op_ce_un: v_op_ce_un {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0250>;
+        }; //  (open central unrounded vowel)
+        
+        m_lim_den_vl: m_lim_den_vl {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0253 0x0329>;
+        }; //  + ring below (voiceless dental lateral implosive)
+        
         // Labial-velar approximants
         
         
