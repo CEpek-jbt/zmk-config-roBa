@@ -1404,35 +1404,20 @@
         
         
         // Taps and flaps
-        mac_ipa_027E0329: mac_ipa_027E0329 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x027E 0x0329>;
-        }; //  + ring below (voiceless alveolar tap)
-
+        
         
         
         
         // Trills with diacritics
         
         
-        mac_ipa_00720338: mac_ipa_00720338 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x0072 0x0338>;
-        }; // r + stroke (alveolar trill)
-
+        
 
         
         
         
         
-        mac_ipa_02A20229: mac_ipa_02A20229 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x02A2 0x0229>;
-        }; //  + nasal hook (epiglottal fricative/trill)
-
+        
         // Clicks with diacritics
         
         
@@ -1493,12 +1478,7 @@
         
         
         
-        mac_ipa_006E032D0329: mac_ipa_006E032D0329 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x006E 0x032D 0x0329>;
-        }; // n + line below + ring below (voiceless dental nasal)
-
+        
         
         
         
@@ -1517,12 +1497,7 @@
                 
                 
         
-        mac_ipa_0279032D032E: mac_ipa_0279032D032E {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x0279 0x032D 0x032E>;
-        }; //  + line below + bridge below (raised retroflex approximant)
-
+        
         
         
         
@@ -1634,130 +1609,30 @@
         }; // oe + line below
         
         // Labial-velar approximants
-        mac_ipa_006B0070: mac_ipa_006B0070 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x006B 0x0070>;
-        }; // kp (voiceless labial-velar plosive)
-
-        mac_ipa_00670062: mac_ipa_00670062 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x0067 0x0062>;
-        }; // gb (voiced labial-velar plosive)
-
-        mac_ipa_014B016D: mac_ipa_014B016D {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x014B 0x016D>;
-        }; // engm (labial-velar nasal)
-
-        mac_ipa_0277071: mac_ipa_0277071 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x0277 0x0071>;
-        }; // wq (voiceless labial-velar fricative)
-
-        mac_ipa_007702A1: mac_ipa_007702A1 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x0077 0x02A1>;
-        }; // w + epiglottal stop (voiced labial-velar fricative)
-
+        
+        
+        
+        
+        
 
         
         
         // Additional specific characters
-        mac_ipa_2D71: mac_ipa_2D71 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D71>;
-        }; //  (labiodental flap)
-
-        mac_ipa_2D72: mac_ipa_2D72 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D72>;
-        }; //  (labiodental tap)
-
-        mac_ipa_2D73: mac_ipa_2D73 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D73>;
-        }; //  (bilabial percussive)
-
-        mac_ipa_2D74: mac_ipa_2D74 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D74>;
-        }; //  (bidental percussive)
-
-        mac_ipa_2D75: mac_ipa_2D75 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D75>;
-        }; //  (dental percussive)
-
-        mac_ipa_2D76: mac_ipa_2D76 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D76>;
-        }; //  (alveolar percussive)
-
-        mac_ipa_2D77: mac_ipa_2D77 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D77>;
-        }; //  (retroflex percussive)
-
-        mac_ipa_2D78: mac_ipa_2D78 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D78>;
-        }; //  (palatal percussive)
-
-        mac_ipa_2D79: mac_ipa_2D79 {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D79>;
-        }; //  (velar percussive)
-
-        mac_ipa_2D7A: mac_ipa_2D7A {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D7A>;
-        }; //  (uvular percussive)
-
-        mac_ipa_2D7B: mac_ipa_2D7B {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D7B>;
-        }; //  (glottal percussive)
-
-        mac_ipa_2D7C: mac_ipa_2D7C {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D7C>;
-        }; //  (alveolar lateral percussive)
-
-        mac_ipa_2D7D: mac_ipa_2D7D {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D7D>;
-        }; //  (retroflex lateral percussive)
-
-        mac_ipa_2D7E: mac_ipa_2D7E {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D7E>;
-        }; //  (palatal lateral percussive)
-
-        mac_ipa_2D7F: mac_ipa_2D7F {
-            compatible = "zmk,behavior-unicode";
-            #binding-cells = <0>;
-            unicode-code = <0x2D7F>;
-        }; //  (velar lateral percussive)
-    };
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            };
 
     combos {
         compatible = "zmk,combos";
