@@ -1681,6 +1681,24 @@
             unicode-code = <0x0265>;
         }; //  (central vowel)
         
+        mac_ipa_028D: mac_ipa_028D {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x028D>;
+        }; //  (labial-velar approximant)
+        
+        mac_ipa_0267: mac_ipa_0267 {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0267>;
+        }; //  (alveolar tap)
+        
+        mac_ipa_0260_0361_0253: mac_ipa_0260_0361_0253 {
+            compatible = "zmk,behavior-unicode";
+            #binding-cells = <0>;
+            unicode-code = <0x0260 0x0361 0x0253>;
+        }; //  + combining inverted bridge below +  (complex central vowel)
+        
         mac_ipa_0265_030A: mac_ipa_0265_030A {
             compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
