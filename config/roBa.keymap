@@ -809,507 +809,609 @@
         // ==========================================
 
         mac_ipa_030D: mac_ipa_030D {
+            #binding-cells = <0>;
             unicode-code = <0x030D>;
         };
 
         mac_ipa_0329: mac_ipa_0329 {
+            #binding-cells = <0>;
             unicode-code = <0x0329>;
         };
 
         mac_ipa_0311: mac_ipa_0311 {
+            #binding-cells = <0>;
             unicode-code = <0x0311>;
         };
 
         mac_ipa_032F: mac_ipa_032F {
+            #binding-cells = <0>;
             unicode-code = <0x032F>;
         };
 
         mac_ipa_02B0: mac_ipa_02B0 {
+            #binding-cells = <0>;
             unicode-code = <0x02B0>;
         };
 
         mac_ipa_02B1: mac_ipa_02B1 {
+            #binding-cells = <0>;
             unicode-code = <0x02B1>;
         };
 
         mac_ipa_1D4D: mac_ipa_1D4D {
+            #binding-cells = <0>;
             unicode-code = <0x1D4D>;
         };
 
         mac_ipa_207F: mac_ipa_207F {
+            #binding-cells = <0>;
             unicode-code = <0x207F>;
         };
 
         mac_ipa_1DAF: mac_ipa_1DAF {
+            #binding-cells = <0>;
             unicode-code = <0x1DAF>;
         };
 
         mac_ipa_1DAE: mac_ipa_1DAE {
+            #binding-cells = <0>;
             unicode-code = <0x1DAE>;
         };
 
         mac_ipa_1D51: mac_ipa_1D51 {
+            #binding-cells = <0>;
             unicode-code = <0x1D51>;
         };
 
         mac_ipa_02E1: mac_ipa_02E1 {
+            #binding-cells = <0>;
             unicode-code = <0x02E1>;
         };
 
         mac_ipa_1D4A: mac_ipa_1D4A {
+            #binding-cells = <0>;
             unicode-code = <0x1D4A>;
         };
 
         mac_ipa_1DBF: mac_ipa_1DBF {
+            #binding-cells = <0>;
             unicode-code = <0x1DBF>;
         };
 
         mac_ipa_02E3: mac_ipa_02E3 {
+            #binding-cells = <0>;
             unicode-code = <0x02E3>;
         };
 
         mac_ipa_031A: mac_ipa_031A {
+            #binding-cells = <0>;
             unicode-code = <0x031A>;
         };
 
         mac_ipa_030A: mac_ipa_030A {
+            #binding-cells = <0>;
             unicode-code = <0x030A>;
         };
 
         mac_ipa_0325: mac_ipa_0325 {
+            #binding-cells = <0>;
             unicode-code = <0x0325>;
         };
 
         mac_ipa_032C: mac_ipa_032C {
+            #binding-cells = <0>;
             unicode-code = <0x032C>;
         };
 
         mac_ipa_0308: mac_ipa_0308 {
+            #binding-cells = <0>;
             unicode-code = <0x0308>;
         };
 
         mac_ipa_0324: mac_ipa_0324 {
+            #binding-cells = <0>;
             unicode-code = <0x0324>;
         };
 
         mac_ipa_0303: mac_ipa_0303 {
+            #binding-cells = <0>;
             unicode-code = <0x0303>;
         };
 
         mac_ipa_0330: mac_ipa_0330 {
+            #binding-cells = <0>;
             unicode-code = <0x0330>;
         };
 
         mac_ipa_032A: mac_ipa_032A {
+            #binding-cells = <0>;
             unicode-code = <0x032A>;
         };
 
         mac_ipa_033A: mac_ipa_033A {
+            #binding-cells = <0>;
             unicode-code = <0x033A>;
         };
 
         mac_ipa_031F: mac_ipa_031F {
+            #binding-cells = <0>;
             unicode-code = <0x031F>;
         };
 
         mac_ipa_0320: mac_ipa_0320 {
+            #binding-cells = <0>;
             unicode-code = <0x0320>;
         };
 
         mac_ipa_031D: mac_ipa_031D {
+            #binding-cells = <0>;
             unicode-code = <0x031D>;
         };
 
         mac_ipa_031E: mac_ipa_031E {
+            #binding-cells = <0>;
             unicode-code = <0x031E>;
         };
 
         mac_ipa_033B: mac_ipa_033B {
+            #binding-cells = <0>;
             unicode-code = <0x033B>;
         };
 
         mac_ipa_033C: mac_ipa_033C {
+            #binding-cells = <0>;
             unicode-code = <0x033C>;
         };
 
         mac_ipa_033D: mac_ipa_033D {
+            #binding-cells = <0>;
             unicode-code = <0x033D>;
         };
 
         mac_ipa_0357: mac_ipa_0357 {
+            #binding-cells = <0>;
             unicode-code = <0x0357>;
         };
 
         mac_ipa_0339: mac_ipa_0339 {
+            #binding-cells = <0>;
             unicode-code = <0x0339>;
         };
 
         mac_ipa_0351: mac_ipa_0351 {
+            #binding-cells = <0>;
             unicode-code = <0x0351>;
         };
 
         mac_ipa_031C: mac_ipa_031C {
+            #binding-cells = <0>;
             unicode-code = <0x031C>;
         };
 
         mac_ipa_02B7: mac_ipa_02B7 {
+            #binding-cells = <0>;
             unicode-code = <0x02B7>;
         };
 
         mac_ipa_02E0: mac_ipa_02E0 {
+            #binding-cells = <0>;
             unicode-code = <0x02E0>;
         };
 
         mac_ipa_02E4: mac_ipa_02E4 {
+            #binding-cells = <0>;
             unicode-code = <0x02E4>;
         };
 
         mac_ipa_02C0: mac_ipa_02C0 {
+            #binding-cells = <0>;
             unicode-code = <0x02C0>;
         };
 
         mac_ipa_0318: mac_ipa_0318 {
+            #binding-cells = <0>;
             unicode-code = <0x0318>;
         };
 
         mac_ipa_0319: mac_ipa_0319 {
+            #binding-cells = <0>;
             unicode-code = <0x0319>;
         };
 
         mac_ipa_02B2: mac_ipa_02B2 {
+            #binding-cells = <0>;
             unicode-code = <0x02B2>;
         };
 
         mac_ipa_026B: mac_ipa_026B {
+            #binding-cells = <0>;
             unicode-code = <0x026B>;
         };
 
         mac_ipa_02DE: mac_ipa_02DE {
+            #binding-cells = <0>;
             unicode-code = <0x02DE>;
         };
 
         mac_ipa_0361: mac_ipa_0361 {
+            #binding-cells = <0>;
             unicode-code = <0x0361>;
         };
 
         mac_ipa_035C: mac_ipa_035C {
+            #binding-cells = <0>;
             unicode-code = <0x035C>;
         };
 
         mac_ipa_02C8: mac_ipa_02C8 {
+            #binding-cells = <0>;
             unicode-code = <0x02C8>;
         };
 
         mac_ipa_02CC: mac_ipa_02CC {
+            #binding-cells = <0>;
             unicode-code = <0x02CC>;
         };
 
         mac_ipa_02D0: mac_ipa_02D0 {
+            #binding-cells = <0>;
             unicode-code = <0x02D0>;
         };
 
         mac_ipa_02D1: mac_ipa_02D1 {
+            #binding-cells = <0>;
             unicode-code = <0x02D1>;
         };
 
         mac_ipa_0306: mac_ipa_0306 {
+            #binding-cells = <0>;
             unicode-code = <0x0306>;
         };
 
         mac_ipa_032E: mac_ipa_032E {
+            #binding-cells = <0>;
             unicode-code = <0x032E>;
         };
 
         mac_ipa_203F: mac_ipa_203F {
+            #binding-cells = <0>;
             unicode-code = <0x203F>;
         };
 
         mac_ipa_007C: mac_ipa_007C {
+            #binding-cells = <0>;
             unicode-code = <0x007C>;
         };
 
         mac_ipa_2016: mac_ipa_2016 {
+            #binding-cells = <0>;
             unicode-code = <0x2016>;
         };
 
         mac_ipa_2197: mac_ipa_2197 {
+            #binding-cells = <0>;
             unicode-code = <0x2197>;
         };
 
         mac_ipa_2198: mac_ipa_2198 {
+            #binding-cells = <0>;
             unicode-code = <0x2198>;
         };
 
         mac_ipa_A71B: mac_ipa_A71B {
+            #binding-cells = <0>;
             unicode-code = <0xA71B>;
         };
 
         mac_ipa_A71C: mac_ipa_A71C {
+            #binding-cells = <0>;
             unicode-code = <0xA71C>;
         };
 
         mac_ipa_0301: mac_ipa_0301 {
+            #binding-cells = <0>;
             unicode-code = <0x0301>;
         };
 
         mac_ipa_030B: mac_ipa_030B {
+            #binding-cells = <0>;
             unicode-code = <0x030B>;
         };
 
         mac_ipa_0300: mac_ipa_0300 {
+            #binding-cells = <0>;
             unicode-code = <0x0300>;
         };
 
         mac_ipa_030F: mac_ipa_030F {
+            #binding-cells = <0>;
             unicode-code = <0x030F>;
         };
 
         mac_ipa_02E9: mac_ipa_02E9 {
+            #binding-cells = <0>;
             unicode-code = <0x02E9>;
         };
 
         mac_ipa_02E8: mac_ipa_02E8 {
+            #binding-cells = <0>;
             unicode-code = <0x02E8>;
         };
 
         mac_ipa_02E7: mac_ipa_02E7 {
+            #binding-cells = <0>;
             unicode-code = <0x02E7>;
         };
 
         mac_ipa_02E6: mac_ipa_02E6 {
+            #binding-cells = <0>;
             unicode-code = <0x02E6>;
         };
 
         mac_ipa_02E5: mac_ipa_02E5 {
+            #binding-cells = <0>;
             unicode-code = <0x02E5>;
         };
 
         mac_ipa_0304: mac_ipa_0304 {
+            #binding-cells = <0>;
             unicode-code = <0x0304>;
         };
 
         mac_ipa_0331: mac_ipa_0331 {
+            #binding-cells = <0>;
             unicode-code = <0x0331>;
         };
 
         mac_ipa_0302: mac_ipa_0302 {
+            #binding-cells = <0>;
             unicode-code = <0x0302>;
         };
 
         mac_ipa_032D: mac_ipa_032D {
+            #binding-cells = <0>;
             unicode-code = <0x032D>;
         };
 
         mac_ipa_030C: mac_ipa_030C {
+            #binding-cells = <0>;
             unicode-code = <0x030C>;
         };
 
         mac_ipa_0327: mac_ipa_0327 {
+            #binding-cells = <0>;
             unicode-code = <0x0327>;
         };
 
         mac_ipa_02BB: mac_ipa_02BB {
+            #binding-cells = <0>;
             unicode-code = <0x02BB>;
         };
 
         mac_ipa_0326: mac_ipa_0326 {
+            #binding-cells = <0>;
             unicode-code = <0x0326>;
         };
 
         mac_ipa_0307: mac_ipa_0307 {
+            #binding-cells = <0>;
             unicode-code = <0x0307>;
         };
 
         mac_ipa_0323: mac_ipa_0323 {
+            #binding-cells = <0>;
             unicode-code = <0x0323>;
         };
 
         mac_ipa_0309: mac_ipa_0309 {
+            #binding-cells = <0>;
             unicode-code = <0x0309>;
         };
 
         mac_ipa_031B: mac_ipa_031B {
+            #binding-cells = <0>;
             unicode-code = <0x031B>;
         };
 
         mac_ipa_0328: mac_ipa_0328 {
+            #binding-cells = <0>;
             unicode-code = <0x0328>;
         };
 
         mac_ipa_0335: mac_ipa_0335 {
+            #binding-cells = <0>;
             unicode-code = <0x0335>;
         };
 
         mac_ipa_309B: mac_ipa_309B {
+            #binding-cells = <0>;
             unicode-code = <0x309B>;
         };
 
         mac_ipa_309C: mac_ipa_309C {
+            #binding-cells = <0>;
             unicode-code = <0x309C>;
         };
 
         mac_ipa_02BC: mac_ipa_02BC {
+            #binding-cells = <0>;
             unicode-code = <0x02BC>;
         };
 
         // --- 複合Unicode文字（複数のコードを連続入力） ---
 
         mac_ipa_006E_0361_006D: m_n_m {
+            #binding-cells = <0>;
             unicode-code = <0x006E 0x0361 0x006D>;
         };
 
         mac_ipa_0273_0361_006D: m_nr_m {
+            #binding-cells = <0>;
             unicode-code = <0x0273 0x0361 0x006D>;
         };
 
         mac_ipa_014B_0361_006D: m_ng_m {
+            #binding-cells = <0>;
             unicode-code = <0x014B 0x0361 0x006D>;
         };
 
         mac_ipa_0074_0361_0070: m_t_p {
+            #binding-cells = <0>;
             unicode-code = <0x0074 0x0361 0x0070>;
         };
 
         mac_ipa_0064_0361_0062: m_d_b {
+            #binding-cells = <0>;
             unicode-code = <0x0064 0x0361 0x0062>;
         };
 
         mac_ipa_0288_0361_0070: m_tr_p {
+            #binding-cells = <0>;
             unicode-code = <0x0288 0x0361 0x0070>;
         };
 
         mac_ipa_0256_0361_0062: m_dr_b {
+            #binding-cells = <0>;
             unicode-code = <0x0256 0x0361 0x0062>;
         };
 
         mac_ipa_006B_0361_0070: m_k_p {
+            #binding-cells = <0>;
             unicode-code = <0x006B 0x0361 0x0070>;
         };
 
         mac_ipa_0067_0361_0062: m_g_b {
+            #binding-cells = <0>;
             unicode-code = <0x0067 0x0361 0x0062>;
         };
 
         mac_ipa_0071_0361_02A1: m_q_a {
+            #binding-cells = <0>;
             unicode-code = <0x0071 0x0361 0x02A1>;
         };
 
         mac_ipa_0071_0361_0070: m_q_p {
+            #binding-cells = <0>;
             unicode-code = <0x0071 0x0361 0x0070>;
         };
 
         mac_ipa_0265_030A: m_h_ring {
+            #binding-cells = <0>;
             unicode-code = <0x0265 0x030A>;
         };
 
         mac_ipa_0265: mac_ipa_0265 {
+            #binding-cells = <0>;
             unicode-code = <0x0265>;
         };
 
         mac_ipa_028D: mac_ipa_028D {
+            #binding-cells = <0>;
             unicode-code = <0x028D>;
         };
 
         mac_ipa_0267: mac_ipa_0267 {
+            #binding-cells = <0>;
             unicode-code = <0x0267>;
         };
 
         mac_ipa_0260_030A_035C_0253_0325: m_complex1 {
+            #binding-cells = <0>;
             unicode-code = <0x0260 0x030A 0x035C 0x0253 0x0325>;
         };
 
         mac_ipa_0260_0361_0253: m_complex2 {
+            #binding-cells = <0>;
             unicode-code = <0x0260 0x0361 0x0253>;
         };
 
         // --- Layer 7: Nasal (鼻音) ---
 
         m_nas_bil_vl: m_nas_bil_vl {
+            #binding-cells = <0>;
             unicode-code = <0x006D 0x0325>;
         }; // m̥
         m_nas_bil_vd: m_nas_bil_vd {
+            #binding-cells = <0>;
             unicode-code = <0x006D>;
         }; // m
         m_nas_lab_vl: m_nas_lab_vl {
+            #binding-cells = <0>;
             unicode-code = <0x0271 0x030A>;
         }; // ɱ̊
         m_nas_lab_vd: m_nas_lab_vd {
+            #binding-cells = <0>;
             unicode-code = <0x0271>;
         }; // ɱ
         m_nas_den_vl: m_nas_den_vl {
+            #binding-cells = <0>;
             unicode-code = <0x006E 0x032A 0x030A>;
         }; // n̪̊
         m_nas_den_vd: m_nas_den_vd {
+            #binding-cells = <0>;
             unicode-code = <0x006E 0x032A>;
         }; // n̪
         m_nas_alv_vl: m_nas_alv_vl {
+            #binding-cells = <0>;
             unicode-code = <0x006E 0x0325>;
         }; // n̥
         m_nas_alv_vd: m_nas_alv_vd {
+            #binding-cells = <0>;
             unicode-code = <0x006E>;
         }; // n
         m_nas_palv_vl: m_nas_palv_vl {
+            #binding-cells = <0>;
             unicode-code = <0x006E 0x0320 0x030A>;
         }; // n̠̊
         m_nas_palv_vd: m_nas_palv_vd {
+            #binding-cells = <0>;
             unicode-code = <0x006E 0x0320>;
         }; // n̠
         m_nas_ret_vl: m_nas_ret_vl {
-            compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
             unicode-code = <0x0273 0x030A>;
         }; // ɳ̊
         m_nas_ret_vd: m_nas_ret_vd {
-            compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
             unicode-code = <0x0273>;
         }; // ɳ
         m_nas_pala_vl: m_nas_pala_vl {
-            compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
             unicode-code = <0x0272 0x030A>;
         }; // ɲ̊
         m_nas_pala_vd: m_nas_pala_vd {
-            compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
             unicode-code = <0x0272>;
         }; // ɲ
         m_nas_vel_vl: m_nas_vel_vl {
-            compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
             unicode-code = <0x014B 0x030A>;
         }; // ŋ̊
         m_nas_vel_vd: m_nas_vel_vd {
-            compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
             unicode-code = <0x014B>;
         }; // ŋ
         m_nas_uv_vl: m_nas_uv_vl {
-            compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
             unicode-code = <0x0274 0x0325>;
         }; // ɴ̥
         m_nas_uv_vd: m_nas_uv_vd {
-            compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
             unicode-code = <0x0274>;
         }; // ɴ
         // --- Layer 8: Plosive (破裂音) ---
 
         m_p_bil_vl: m_p_bil_vl {
-            compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
             unicode-code = <0x0070>;
         };
 
         m_p_bil_vd: m_p_bil_vd {
-            compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
             unicode-code = <0x0062>;
         };
 
         m_p_lab_vl: m_p_lab_vl {
-            compatible = "zmk,behavior-unicode";
             #binding-cells = <0>;
             unicode-code = <0x0070 0x032A>;
         }; // p̪
