@@ -1638,7 +1638,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp P>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N7 &kp N0 &kp RET>, <&macro_release &kp LALT>;
         };
 
         m_p_bil_vd: m_p_bil_vd {
@@ -1646,7 +1646,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp B>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N6 &kp N2 &kp RET>, <&macro_release &kp LALT>;
         };
 
         m_p_lab_vl: m_p_lab_vl {
@@ -1654,43 +1654,43 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp P &kp N0 &kp N3 &kp N2 &kp A &kp RET>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N7 &kp N0 &kp N0 &kp N3 &kp N2 &kp A &kp RET>, <&macro_release &kp LALT>;
         }; // p̪
         m_p_lab_vd: m_p_lab_vd {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp B &kp N0 &kp N3 &kp N2 &kp A &kp RET>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT>, &kp N0 &kp N0 &kp N6 &kp N2 &kp N0 &kp N3 &kp N2 &kp A &kp RET>, <&macro_release &kp LALT>;
         }; // b̪
         m_p_den_vl: m_p_den_vl {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp T &kp N0 &kp N3 &kp N2 &kp A &kp RET>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N7 &kp N4 &kp N0 &kp N3 &kp N2 &kp A &kp RET>, <&macro_release &kp LALT>;
         }; // t̪
         m_p_den_vd: m_p_den_vd {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp D &kp N0 &kp N3 &kp N2 &kp A &kp RET>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N6 &kp N4 &kp N0 &kp N3 &kp N2 &kp A &kp RET>, <&macro_release &kp LALT>;
         }; // d̪
         m_p_alv_vl: m_p_alv_vl {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp T>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N7 &kp N4>>, <&macro_release &kp LALT>;
         };
 
-        m_p_alv_vd: m_p_alv_vd {
+        m_p_alv_vd: m_p_alv_vd 
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp D>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N6 &kp N4>;
         };
 
         m_p_ret_vl: m_p_ret_vl {
@@ -1712,7 +1712,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp C>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp E &kp N7 &kp RET>, <&macro_release &kp LALT>;
         };
 
         m_p_pala_vd: m_p_pala_vd {
@@ -1727,7 +1727,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp K>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N6 &kp B &kp RET>, <&macro_release &kp LALT>;
         };
 
         m_p_vel_vd: m_p_vel_vd {
@@ -1735,7 +1735,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp G>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N6 &kp N7>, <&macro_release &kp LALT>;
         };
 
         m_p_uv_vl: m_p_uv_vl {
@@ -1743,7 +1743,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp Q>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N7 &kp N1>, <&macro_release &kp LALT>;
         };
 
         m_p_uv_vd: m_p_uv_vd {
@@ -1788,7 +1788,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp F>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N6 &kp N6>, <&macro_release &kp LALT>;;
         };
 
         m_nsf_lab_vd: m_nsf_lab_vd {
@@ -1796,7 +1796,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp V>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N7 &kp N6>, <&macro_release &kp LALT>;;
         };
 
         m_nsf_den_vl: m_nsf_den_vl {
@@ -1874,7 +1874,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&trans>;
+            bindings = <&macro_press &kp LALT>, <&kp U &kp N0 &kp N2 &kp N6 &kp 3 &kp RET>, <&macro_release &kp LALT>;
         };
 
         m_nsf_vel_vd: m_nsf_vel_vd {
@@ -1917,7 +1917,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp H>;
+            bindings = <&macro_press &kp LALT>, <&kp U &kp N0 &kp N0 &kp N6 &kp N8 &kp RET>, <&macro_release &kp LALT>;
         };
 
         m_nsf_glo_vd: m_nsf_glo_vd {
@@ -1934,7 +1934,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp P &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N8 &kp RET>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT>, <&kp U &kp N0 &kp N0 &kp N7 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N8 &kp RET>, <&macro_release &kp LALT>;
         }; // p͡ɸ
         m_nsa_bil_vd: m_nsa_bil_vd {
             compatible = "zmk,behavior-macro";
@@ -1948,56 +1948,56 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp P &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp F>;
+            bindings = <&macro_press &kp LALT>, <&kp U &kp N0 &kp N0 &kp N6 &kp N2 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N0 &kp N6 &kp N6 &kp RET>, <&macro_release &kp LALT>;
         }; // p̪͡f
         m_nsa_lab_vd: m_nsa_lab_vd {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp B &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp V>;
+            bindings = <&macro_press &kp LALT>, <&kp U &kp N0 &kp N0 &kp N6 &kp N2 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N0 &kp N7 &kp N6 &kp RET>, <&macro_release &kp LALT>;
         }; // b̪͡v
         m_nsa_den_vl: m_nsa_den_vl {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp T &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N3 &kp B &kp N8 &kp RET>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT>, <&kp U &kp N0 &kp N0 &kp N7 &kp N4 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N3 &kp B &kp N8 &kp RET>, <&macro_release &kp LALT>;
         }; // t̪͡θ
         m_nsa_den_vd: m_nsa_den_vd {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp D &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp F &kp N0 &kp RET>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT>, <&kp U &kp N0 &kp N0 &kp N6 &kp N4 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp A &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp F &kp N0 &kp RET>, <&macro_release &kp LALT>;
         }; // d̪͡ð
         m_nsa_alv_vl: m_nsa_alv_vl {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp T &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET &kp U &kp N0 &kp N3 &kp N0 &kp A &kp RET>, <&macro_release &kp LALT>;
-        }; // t͡ɹ̝̊
+            bindings = <&macro_press &kp LALT>, <&kp U &kp N0 &kp N0 &kp N7 &kp N4 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET &kp U &kp N0 &kp N3 &kp N0 &kp A &kp RET>, <&macro_release &kp LALT>;
+        }; // t͡ɹ̝
         m_nsa_alv_vd: m_nsa_alv_vd {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp D &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT>, <&kp U &kp N0 &kp N0 &kp N6 &kp N4 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET>, <&macro_release &kp LALT>;
         }; // d͡ɹ̝
         m_nsa_palv_vl: m_nsa_palv_vl {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp T &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET &kp U &kp N0 &kp N3 &kp N0 &kp A &kp RET>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT>, <&kp U &kp N0 &kp N0 &kp N7 &kp N4 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET &kp U &kp N0 &kp N3 &kp N0 &kp A &kp RET>, <&macro_release &kp LALT>;
         }; // t̠͡ɹ̠̊˔
         m_nsa_palv_vd: m_nsa_palv_vd {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp D &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT> , <&kp U &kp N0 &kp N0 &kp N6 &kp N4 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N6 &kp N1 &kp RET &kp U &kp N0 &kp N2 &kp N7 &kp N9 &kp RET &kp U &kp N0 &kp N3 &kp N2 &kp N0 &kp RET &kp U &kp N0 &kp N3 &kp N1 &kp D &kp RET>, <&macro_release &kp LALT>;
         }; // d̠͡ɹ̠˔
         m_nsa_ret_vl: m_nsa_ret_vl {
             compatible = "zmk,behavior-macro";
