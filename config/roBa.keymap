@@ -1690,7 +1690,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N6 &kp N4>;
+            bindings = <&macro_press &kp LALT>, <&kp N0 &kp N0 &kp N6 &kp N4 &kp RET>, <&macro_release &kp LALT>;
         };
 
         m_p_ret_vl: m_p_ret_vl {
