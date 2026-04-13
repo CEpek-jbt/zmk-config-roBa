@@ -80,7 +80,7 @@
             bindings = <&ipa_sw 14 0>;
         };
 
-        combo_lapproximant {, 
+        combo_lapproximant {
             timeout-ms = <150>;
             key-positions = <37 41>;
             bindings = <&ipa_sw 16 0>;
