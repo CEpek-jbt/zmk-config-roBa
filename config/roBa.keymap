@@ -354,12 +354,6 @@
             bindings = <&mac_ipa_02E0>;
         };
 
-        combo_PL_1 {
-            timeout-ms = <300>;
-            key-positions = <9 20>;
-            bindings = <&mac_ipa_02E4>;
-        };
-
         combo_AL {
             timeout-ms = <300>;
             key-positions = <10 20>;
@@ -369,12 +363,6 @@
         combo_HML {
             timeout-ms = <300>;
             key-positions = <17 30 20>;
-            bindings = <&mac_ipa_02C0>;
-        };
-
-        combo_PL_2 {
-            timeout-ms = <300>;
-            key-positions = <9 20>;
             bindings = <&mac_ipa_02C0>;
         };
 
